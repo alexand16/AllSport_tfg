@@ -49,6 +49,32 @@ public class Productos_Pedidos implements Serializable {
         this.id = id;
     }
 
+    public Productos getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Productos producto) {
+        this.producto = producto;
+    }
+
+    public Pedidos getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedidos pedido) {
+        this.pedido = pedido;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

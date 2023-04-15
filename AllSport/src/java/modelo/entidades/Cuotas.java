@@ -5,23 +5,34 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author alanr
  */
 @Entity
+@Table(name = "cuotas")
 public class Cuotas implements Serializable {
 
+    //properties
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "nombre_cuota", nullable = false)
+    private String nombre;
+    
+    @Column(name = "precio_cuota", nullable = false)
+    private double precio;
+    
+    //getters & setters
     public Long getId() {
         return id;
     }
@@ -30,6 +41,24 @@ public class Cuotas implements Serializable {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

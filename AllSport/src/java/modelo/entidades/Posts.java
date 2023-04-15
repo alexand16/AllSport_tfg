@@ -5,23 +5,44 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author alanr
  */
 @Entity
+@Table(name = "posts")
 public class Posts implements Serializable {
 
+    //properties
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "titulo")
+    private String titulo;
+
+    @Column(name = "contenido")
+    private String contenido;
+
+    @Column(name = "fecha_creacion")
+    private LocalDate fechaCreacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_administrador")
+    private Clientes administrador;
+
+    //getters & setters
     public Long getId() {
         return id;
     }
@@ -30,6 +51,41 @@ public class Posts implements Serializable {
         this.id = id;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public LocalDate getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Clientes getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Clientes administrador) {
+        this.administrador = administrador;
+    }
+
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -54,5 +110,5 @@ public class Posts implements Serializable {
     public String toString() {
         return "modelo.entidades.Posts[ id=" + id + " ]";
     }
-    
+
 }
