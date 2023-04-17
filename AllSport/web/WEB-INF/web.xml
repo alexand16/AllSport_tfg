@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>MenuClientes</servlet-name>
+        <servlet-class>controlador.admin.MenuClientes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarCliente</servlet-name>
+        <servlet-class>controlador.admin.EditarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarCliente</servlet-name>
+        <servlet-class>controlador.admin.EliminarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearCliente</servlet-name>
+        <servlet-class>controlador.admin.CrearCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MenuClientes</servlet-name>
+        <url-pattern>/MenuClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarCliente</servlet-name>
+        <url-pattern>/EditarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarCliente</servlet-name>
+        <url-pattern>/EliminarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearCliente</servlet-name>
+        <url-pattern>/CrearCliente</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
