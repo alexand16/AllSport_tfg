@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ClientesJpaController;
+import modelo.dao.CuotasJpaController;
 import modelo.entidades.Clientes;
 
 /**
@@ -39,25 +40,27 @@ public class CrearCliente extends HttpServlet {
         String nombre = "";
         String apellidos = "";
         String tipoUsuario = "";
-        String tipoCuota = "";
+        long tipoCuota = 0;
         String telefono = "";
         String email = "";
         String rutaImg = "";
         String observaciones = "";
         LocalDate fechaNacimiento;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
+        CuotasJpaController cjc = new CuotasJpaController(emf);
         if (request.getParameter("nombre") != null) {
             nombre = request.getParameter("nombre");
             apellidos = request.getParameter("apellidos");
             tipoUsuario = request.getParameter("tipoUsuario");
-            tipoCuota = request.getParameter("tipoCuota");
+            tipoCuota = Long.parseLong(request.getParameter("tipoCuota"));
             telefono = request.getParameter("telefono");
             email = request.getParameter("email");
             //rutaImg = request.getParameter("rutaImg");
-            telefono = request.getParameter("observaciones");
+            observaciones = request.getParameter("observaciones");
             fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
             nombre = nombre.trim();
-            if (nombre.isEmpty()) {
-                error = "El nombre del usuario no puede estar vacÃ­o";
+            if (nombre.isEmpty() || apellidos.isEmpty() || telefono.isEmpty() || fechaNacimiento == null) {
+                error = "los campos del usuario no puede estar vacío";
             } else {
                 Clientes c = new Clientes();
                 c.setNombre(nombre);
@@ -68,20 +71,17 @@ public class CrearCliente extends HttpServlet {
                 c.setRutaImg(rutaImg);
                 c.setObservaciones(observaciones);
                 c.setFechaNacimiento(fechaNacimiento);
-
-                //c.setCuota(request.getParameter("cuota")); !!revisar!!
+                c.setCuota(cjc.findCuotas(tipoCuota));
                 c.setFechaAlta(LocalDate.now());
                 c.setFechaPago(LocalDate.now());
                 c.setEstadoMembresia("Activo");
-
-                EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
                 ClientesJpaController djc = new ClientesJpaController(emf);
-                try {
+                try {              
                     djc.create(c);
                     response.sendRedirect("MenuClientes");
                     return;
                 } catch (RollbackException e) {
-                    //error = "El usuario " + nombre + " ya existe";
+                    error = "El usuario " + nombre + " ya existe";
                     error = e.getMessage();
                 }
             }
@@ -92,6 +92,8 @@ public class CrearCliente extends HttpServlet {
             request.setAttribute("password", apellidos);
             request.setAttribute("tipo", tipoUsuario);
         }
+
+        request.setAttribute("cuotas", cjc.findCuotasEntities());
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

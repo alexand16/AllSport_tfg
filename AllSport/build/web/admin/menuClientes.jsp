@@ -24,22 +24,25 @@
         ></script>
     </head>
     <body>
-        <div class="container mt-5">
-            <h1>Usuarios</h1>
-            <div style="overflow-y: scroll; height: 600px;">
+        <div class=" m-5">
+            <h1>Clientes</h1>
+            <div style="overflow-y: scroll; height: 600px; border: 1px solid black;">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Estado</th>
-                            <th>fecha pago</th>
-                            <th>Tipo</th>
-                            <th></th>
-                            <th></th>
+                            <th style="position: sticky; top: 0; background-color: white;">Nombre</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Apellido</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Estado</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Fecha de Pago</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Tipo de Cuota</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Email</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Telefono</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Fecha de Nacimiento</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Puntos</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Observaciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="overflow-y: scroll; height: 100%;">
                         <c:forEach items="${clientes}" var="c">
                             <tr>
                                 <td><c:out value="${c.nombre}"/></td>
@@ -47,6 +50,11 @@
                                 <td><c:out value="${c.estadoMembresia}"/></td>
                                 <td><c:out value="${c.fechaPago}"/></td>
                                 <td><c:out value="${c.cuota.nombre}"/></td>
+                                <td><c:out value="${c.email}"/></td>
+                                <td><c:out value="${c.telefono}"/></td>
+                                <td><c:out value="${c.fechaNacimiento}"/></td>
+                                <td><c:out value="${c.puntos}"/></td>
+                                <td><c:out value="${c.observaciones}"/></td>
                                 <td>
                                     <form action="EditarCliente" method="post">
                                         <input type="hidden" name="id" value="${c.id}">
@@ -85,8 +93,8 @@
                 <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
                 </svg>
             </a>
-            <br><br>
-            <a href="inicio.jsp" class="btn btn-secondary">Volver 
+            <br>
+            <a href="index.html" class="btn btn-secondary mt-2">Volver 
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
                 </svg>

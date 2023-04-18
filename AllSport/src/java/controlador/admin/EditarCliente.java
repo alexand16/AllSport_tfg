@@ -6,6 +6,7 @@ package controlador.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -13,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ClientesJpaController;
+import modelo.dao.CuotasJpaController;
 import modelo.entidades.Clientes;
+import modelo.entidades.Cuotas;
 
 /**
  *
@@ -36,22 +39,40 @@ public class EditarCliente extends HttpServlet {
         long id = Long.parseLong(request.getParameter("id"));
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
         ClientesJpaController djc = new ClientesJpaController(emf);
-        Clientes usuario = djc.findClientes(id);
+        Clientes cliente = djc.findClientes(id);           
+        CuotasJpaController cjc = new CuotasJpaController(emf);
         if (request.getParameter("nombre") != null) {
             // Editando
             String nombre = request.getParameter("nombre");
-            usuario.setNombre(nombre);
+            String apellidos = request.getParameter("apellidos");
+            String estadoMembresia = request.getParameter("estadoMembresia");
+            LocalDate fechaPago = LocalDate.parse(request.getParameter("fechaPago"));
+            long cuota = Long.parseLong(request.getParameter("tipoCuota"));
+            LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
+            int puntos = Integer.parseInt(request.getParameter("puntos"));
+            String observaciones = request.getParameter("observaciones");
+            
+            cliente.setNombre(nombre);
+            cliente.setApellidos(apellidos);
+            cliente.setEstadoMembresia(estadoMembresia);
+            cliente.setFechaPago(fechaPago);
+            cliente.setCuota(cjc.findCuotas(cuota));
+            cliente.setFechaNacimiento(fechaNacimiento);
+            cliente.setPuntos(puntos);
+            cliente.setObservaciones(observaciones);
+            
             try {
-                djc.edit(usuario);
+                djc.edit(cliente);
                 response.sendRedirect("MenuClientes");
                 return;
             } catch (Exception e) {
                 request.setAttribute("error", "Error al actualizar usuario");
-                request.setAttribute("usuario", usuario);
+                request.setAttribute("cliente", cliente);
             }
         } else {
-            request.setAttribute("usuario", usuario);
+            request.setAttribute("cliente", cliente);
         }
+        request.setAttribute("cuotas", cjc.findCuotasEntities());
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

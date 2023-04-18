@@ -29,50 +29,50 @@ public class Clientes implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-        @Column(name = "tipo_usuario")
+
+    @Column(name = "tipo_usuario")
     private String tipoUsuario;
-    
+
     @Column(name = "USUARIO")
     private String usuario;
-    
+
     @Column(name = "CONTRASEÑA")
     private String contrasena;
-    
+
     @Column(name = "fecha_alta")
     private LocalDate fechaAlta;
-    
+
     @Column(name = "nombre")
     private String nombre;
-    
+
     @Column(name = "apellidos")
     private String apellidos;
-    
+
     @Column(name = "telefono")
     private String telefono;
-    
+
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
-    
+
     @Column(name = "email")
     private String email;
-    
+
     @Column(name = "fecha_pago")
     private LocalDate fechaPago;
-    
+
     @Column(name = "estado_membresia")
     private String estadoMembresia;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_cuota_id")
     private Cuotas cuota;
-    
+
     @Column(name = "puntos")
     private int puntos;
-    
+
     @Column(name = "ruta_img")
     private String rutaImg;
-    
+
     @Column(name = "observaciones")
     private String observaciones;
 
@@ -204,8 +204,6 @@ public class Clientes implements Serializable {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
-    
 
     @Override
     public int hashCode() {
@@ -231,5 +229,5 @@ public class Clientes implements Serializable {
     public String toString() {
         return "modelo.entidades.Clientes[ id=" + id + " ]";
     }
-    
+
 }

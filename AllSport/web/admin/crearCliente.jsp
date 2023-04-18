@@ -23,29 +23,29 @@
         ></script>
     </head>
     <body>
-        <div class="container">
-            <h1>Crear Departamento</h1>
+        <div class="container mt-5">
+            <h1>Crear Cliente</h1>
             <br>
             <form>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="${nombre}">
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="${nombre}" required>
                 </div>
                 <div class="mb-3">
                     <label for="apellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="apellidos" name="apellidos" value="${apellidos}">
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" value="${apellidos}" required>
                 </div>
                 <div class="mb-3">
                     <label for="telefono" class="form-label">Telefono</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono" value="${telefono}">
+                    <input type="text" class="form-control" id="telefono" name="telefono" value="${telefono}" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="nombre" value="${email}">
+                    <input type="email" class="form-control" id="email" name="email" value="${email}" required>
                 </div>
                 <div class="mb-3">
                     <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                    <input type="date" class="form-control" id="email" name="fechaNacimiento" value="${fechaNacimiento}">
+                    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="${fechaNacimiento}" required>
                 </div>
                 <div class="mb-3">
                     <label for="observaciones" class="form-label">Observaciones</label>
@@ -61,13 +61,16 @@
                 <div class="mb-3">
                     <label for="tipoCuota" class="form-label">Tipo de Cuota:</label>
                     <select class="form-select" id="tipoCuota" name="tipoCuota">
-                        <option value="a">a</option>
-                        <option value="b">b</option>
+                        <c:forEach items="${cuotas}" var="tipoCuota">
+                            <option value="${tipoCuota.id}">${tipoCuota.nombre} --> ${tipoCuota.precio}$</option> 
+                        </c:forEach>                                     
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Crear</button>
-            </form>
+                <button type="submit" class="btn btn-primary">Crear</button> &nbsp   
+                <a href="MenuClientes" class="btn btn-secondary">Volver
+                </a>
+            </form> 
 
             <br>
 
@@ -76,6 +79,7 @@
                     <c:out value="${error}"/>
                 </div>
             </c:if>
+
         </div>
     </body>
 </html>
