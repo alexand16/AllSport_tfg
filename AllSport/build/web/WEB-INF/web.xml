@@ -28,6 +28,10 @@
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>controlador.CerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarPerfil</servlet-name>
+        <servlet-class>controlador.usuarioR.EditarPerfil</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarPerfil</servlet-name>
+        <url-pattern>/EditarPerfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

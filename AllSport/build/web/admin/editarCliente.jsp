@@ -86,9 +86,7 @@
                         <a href="MenuClientes" class="btn btn-secondary">Volver
                         </a>
                     </form>
-                    <c:if test="${! empty error}">
-                        <div class="error mt-3">${error}</div>
-                    </c:if>
+
                 </div>
             </div>
         </div>
