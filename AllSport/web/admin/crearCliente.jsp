@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Crear Departamento</title>
+        <title>Crear Cliente</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -54,8 +54,8 @@
                 <div class="mb-3">
                     <label for="tipoUsuario" class="form-label">Tipo de usuario:</label>
                     <select class="form-select" id="tipoUsuario" name="tipoUsuario">
-                        <option value="normal">Normal</option>
-                        <option value="admin">Admin</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Admin">Admin</option>
                     </select>
                 </div>
                 <div class="mb-3">
