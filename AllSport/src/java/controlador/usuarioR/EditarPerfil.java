@@ -19,6 +19,7 @@ import modelo.dao.ClientesJpaController;
 import modelo.dao.CuotasJpaController;
 import modelo.entidades.Clientes;
 
+
 /**
  *
  * @author alanr
@@ -61,7 +62,7 @@ public class EditarPerfil extends HttpServlet {
 
             try {
                 djc.edit(cliente);
-                response.sendRedirect("Login");
+                response.sendRedirect("index.jsp");
                 return;
             } catch (Exception e) {
                 request.setAttribute("error", "Error al actualizar usuario");

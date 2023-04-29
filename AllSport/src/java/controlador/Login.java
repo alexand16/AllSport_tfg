@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ClientesJpaController;
 import modelo.entidades.Clientes;
+import static modelo.entidades.Clientes.getMD5;
 
 /**
  *
@@ -34,27 +35,30 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String vista = "/login.jsp";
+        String error = "";
 
         //Si recibimos datos
         if (request.getParameter("usuario") != null && request.getParameter("contraseña") != null) {
             String usuario = request.getParameter("usuario");
             String contraseña = request.getParameter("contraseña");
-
+            contraseña = getMD5(contraseña);
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
             ClientesJpaController cjc = new ClientesJpaController(emf);
             List<Clientes> Cliente = cjc.findClientesEntities();
             for (Clientes c : Cliente) {
-                if (c.getUsuario().equals(usuario) && c.getContrasena().equals(contraseña)) {
-                    request.getSession().setAttribute("usuario", c);
-                    response.sendRedirect("index.jsp");
-                    return;
+                if (!(c.getUsuario() == null || c.getContrasena() == null)) {
+                    if (c.getUsuario().equals(usuario) && c.getContrasena().equals(contraseña)) {
+                        request.getSession().setAttribute("usuario", c);
+                        response.sendRedirect("index.jsp");
+                        return;
+                    }
                 }
             }
-
-            String error = "Usuario o contraseña incorrectos.";
+            error = "Usuario o contraseña incorrectos.";
             request.setAttribute("error", error);
             request.setAttribute("usuario", usuario);
-            request.setAttribute("contraseña", contraseña);
+
+
         }
 
         getServletContext().getRequestDispatcher(vista).forward(request, response);

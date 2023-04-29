@@ -53,7 +53,7 @@
                                 <c:when test="${usuario != null}">
                                     <span class="fs-4 text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
                                     <c:choose>
-                                        <c:when test="${usuario.rutaImg != ''}">
+                                        <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
                                             <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="alt" width="48px" height="48"/>
                                         </c:when>
                                         <c:otherwise>

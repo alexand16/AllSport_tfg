@@ -4,25 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="proyectoE">
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Clientes.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/registro.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/crearCliente.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/EliminarCliente.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Productos.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Posts.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/EditarCliente.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/login.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/menuClientes.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/index.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Cuotas.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Valoraciones.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/CerrarSesion.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Pedidos.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Productos_Pedidos.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/MenuClientes.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/editarCliente.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Login.java</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Respuestas.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/login.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/index.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/CrearCliente.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/assets/bootstrap/css/bootstrap.min.css</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Registro.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/usuarioR/EditarPerfil.java</file>
         </group>
     </open-files>
 </project-private>

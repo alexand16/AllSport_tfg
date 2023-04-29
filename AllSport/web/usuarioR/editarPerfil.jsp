@@ -79,8 +79,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr>
                                 <i>los cambios se aplicaran en la proxima sesión*</i>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12 content-right">
                                         <button class="btn btn-primary form-btn" type="submit">GUARDAR</button>

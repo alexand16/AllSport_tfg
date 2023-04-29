@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controlador.admin;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,12 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ClientesJpaController;
 import modelo.dao.CuotasJpaController;
 import modelo.entidades.Clientes;
+import static modelo.entidades.Clientes.getMD5;
 
 /**
  *
  * @author alanr
  */
-public class CrearCliente extends HttpServlet {
+public class Registro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,65 +36,66 @@ public class CrearCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/admin/crearCliente.jsp";
+        String vista = "/registro.jsp";
         String error = "";
-
+        String Usuario = "";
+        String Contraseña = "";
         String nombre = "";
         String apellidos = "";
-        String tipoUsuario = "";
-        long tipoCuota = 0;
         String telefono = "";
         String email = "";
-        String rutaImg = "";
-        String observaciones = "";
-        LocalDate fechaNacimiento;
+        long cuota = 0;
+        LocalDate fechaNacimiento = null;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
-        CuotasJpaController cjc = new CuotasJpaController(emf);
         if (request.getParameter("nombre") != null) {
+            Usuario = request.getParameter("usuario");
+            Contraseña = getMD5(request.getParameter("pwd"));
             nombre = request.getParameter("nombre");
             apellidos = request.getParameter("apellidos");
-            tipoUsuario = request.getParameter("tipoUsuario");
-            tipoCuota = Long.parseLong(request.getParameter("tipoCuota"));
             telefono = request.getParameter("telefono");
             email = request.getParameter("email");
-            //rutaImg = request.getParameter("rutaImg");
-            observaciones = request.getParameter("observaciones");
             fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
-            nombre = nombre.trim();
+            CuotasJpaController cjc = new CuotasJpaController(emf);
             if (nombre.isEmpty() || apellidos.isEmpty() || telefono.isEmpty() || fechaNacimiento == null) {
                 error = "los campos del usuario no puede estar vacío";
             } else {
                 Clientes c = new Clientes();
+                c.setUsuario(Usuario);
+                c.setContrasena(Contraseña);
                 c.setNombre(nombre);
                 c.setApellidos(apellidos);
-                c.setTipoUsuario(tipoUsuario);
                 c.setTelefono(telefono);
                 c.setEmail(email);
-                //c.setRutaImg(rutaImg);
-                c.setObservaciones(observaciones);
                 c.setFechaNacimiento(fechaNacimiento);
-                c.setCuota(cjc.findCuotas(tipoCuota));
+                c.setTipoUsuario("Normal");
+                c.setObservaciones("");
+                c.setRutaImg("");
                 c.setFechaAlta(LocalDate.now());
-                c.setFechaPago(LocalDate.now());
-                c.setEstadoMembresia("Activo");
+                if (cuota >= 0 && cjc.findCuotas(cuota) != null) {
+                    c.setEstadoMembresia("Activo");
+                } else {
+                    c.setEstadoMembresia("Inactivo");
+                }
                 ClientesJpaController djc = new ClientesJpaController(emf);
                 try {
                     djc.create(c);
-                    response.sendRedirect("MenuClientes");
+                    response.sendRedirect("index.jsp");
                     return;
                 } catch (RollbackException e) {
-                    error = "El usuario \"" + nombre + "\" ya existe. \n O este correo \"" + email + "\" ya esta en uso";
+                    error = "El usuario \"" + Usuario + "\" ya existe. \n O Revisa tu correo " + email + " si ya te has inscrito de forma presencial";
+                    //error += e.getMessage();
                 }
             }
         }
         if (!error.isEmpty()) {
             request.setAttribute("error", error);
             request.setAttribute("nombre", nombre);
-            request.setAttribute("password", apellidos);
-            request.setAttribute("tipo", tipoUsuario);
+            request.setAttribute("usuario", Usuario);
+            request.setAttribute("apellidos", apellidos);
+            request.setAttribute("telefono", telefono);
+            request.setAttribute("email", email);
+            request.setAttribute("fechaNacimiento", fechaNacimiento);
         }
-
-        request.setAttribute("cuotas", cjc.findCuotasEntities());
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

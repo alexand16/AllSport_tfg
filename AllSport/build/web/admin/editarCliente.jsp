@@ -40,14 +40,10 @@
                             <label for="apellidos">Apellidos:</label>
                             <input type="text" class="form-control" id="apellidos" name="apellidos" value="${cliente.apellidos}" required>
                         </div>
-                        <div class="form-group">
-                            <label for="estadoMembresia">Estado:</label>
-                            <input type="text" class="form-control" id="estadoMembresia" name="estadoMembresia" value="${cliente.estadoMembresia}" required>
-                        </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="fechaPago">Fecha de Pago:</label>
                             <input type="date" class="form-control" id="fechaPago" name="fechaPago" value="${cliente.fechaPago}" required>
-                        </div>
+                        </div>-->
                         <label for="tipoCuota" class="form-label">Tipo de Cuota:</label>
                         <select class="form-select" id="tipoCuota" name="tipoCuota">
                             <c:forEach items="${cuotas}" var="tipoCuota">
@@ -59,7 +55,8 @@
                                         <option value="${tipoCuota.id}">${tipoCuota.nombre} --> ${tipoCuota.precio}$</option>
                                     </c:otherwise>
                                 </c:choose>
-                            </c:forEach>                                  
+                            </c:forEach>
+                            <option value="${0}">No tiene</option>
                         </select>
                         <div class="form-group">
                             <label for="email">Email:</label>
@@ -79,14 +76,16 @@
                         </div>
                         <div class="form-group">
                             <label for="observaciones">Observaciones:</label>
-                            <input type="text" class="form-control" id="observaciones" name="observaciones" value="${cliente.observaciones}" required>
+                            <input type="text" class="form-control" id="observaciones" name="observaciones" value="${cliente.observaciones}" >
                         </div>
                         <br/>
                         <button type="submit" class="btn btn-primary">Enviar</button> 
                         <a href="MenuClientes" class="btn btn-secondary">Volver
                         </a>
                     </form>
-
+                    <c:if test="${! empty error}">
+                        <div class="error mt-3">${error}</div>
+                    </c:if>
                 </div>
             </div>
         </div>

@@ -39,28 +39,32 @@ public class EditarCliente extends HttpServlet {
         long id = Long.parseLong(request.getParameter("id"));
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
         ClientesJpaController djc = new ClientesJpaController(emf);
-        Clientes cliente = djc.findClientes(id);           
+        Clientes cliente = djc.findClientes(id);
         CuotasJpaController cjc = new CuotasJpaController(emf);
         if (request.getParameter("nombre") != null) {
             // Editando
             String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
-            String estadoMembresia = request.getParameter("estadoMembresia");
-            LocalDate fechaPago = LocalDate.parse(request.getParameter("fechaPago"));
+            //LocalDate fechaPago = LocalDate.parse(request.getParameter("fechaPago"));
             long cuota = Long.parseLong(request.getParameter("tipoCuota"));
             LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
             int puntos = Integer.parseInt(request.getParameter("puntos"));
             String observaciones = request.getParameter("observaciones");
-            
+
             cliente.setNombre(nombre);
             cliente.setApellidos(apellidos);
-            cliente.setEstadoMembresia(estadoMembresia);
-            cliente.setFechaPago(fechaPago);
+            //cliente.setFechaPago(fechaPago);
             cliente.setCuota(cjc.findCuotas(cuota));
+            if (cuota >= 0 && cjc.findCuotas(cuota) != null) {
+                cliente.setEstadoMembresia("Activo");
+            }else{
+                cliente.setEstadoMembresia("Inactivo");
+            }
+            
             cliente.setFechaNacimiento(fechaNacimiento);
             cliente.setPuntos(puntos);
             cliente.setObservaciones(observaciones);
-            
+
             try {
                 djc.edit(cliente);
                 response.sendRedirect("MenuClientes");
