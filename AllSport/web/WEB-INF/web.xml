@@ -40,6 +40,22 @@
         <servlet-name>Blog</servlet-name>
         <servlet-class>controlador.Blog</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearPost</servlet-name>
+        <servlet-class>controlador.admin.CrearPost</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearRespuesta</servlet-name>
+        <servlet-class>controlador.usuarioR.CrearRespuesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarPost</servlet-name>
+        <servlet-class>controlador.admin.EliminarPost</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarRespuesta</servlet-name>
+        <servlet-class>controlador.admin.EliminarRespuesta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -79,6 +95,22 @@
     <servlet-mapping>
         <servlet-name>Blog</servlet-name>
         <url-pattern>/Blog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearPost</servlet-name>
+        <url-pattern>/CrearPost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearRespuesta</servlet-name>
+        <url-pattern>/CrearRespuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarPost</servlet-name>
+        <url-pattern>/EliminarPost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarRespuesta</servlet-name>
+        <url-pattern>/EliminarRespuesta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
