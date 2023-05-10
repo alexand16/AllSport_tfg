@@ -6,10 +6,14 @@ package controlador.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.RespuestasJpaController;
 
 /**
  *
@@ -28,18 +32,22 @@ public class EliminarRespuesta extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EliminarRespuesta</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EliminarRespuesta at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        response.setContentType("text/html;charset=latin1");
+        Long id = Long.parseLong(request.getParameter("id"));
+        String error = "";
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
+        RespuestasJpaController rjc = new RespuestasJpaController(emf);
+        try {
+            rjc.destroy(id);
+        } catch (Exception e) {
+            error = "Error al eliminar esta respuesta";
+        }
+
+        if (error.isEmpty()) {
+            response.sendRedirect("MenuBlog");
+            return;
+        } else {
+            response.sendRedirect("MenuBlog?error=" + URLEncoder.encode(error, "latin1"));
         }
     }
 

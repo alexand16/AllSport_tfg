@@ -6,25 +6,20 @@ package controlador.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.ClientesJpaController;
 import modelo.dao.PostsJpaController;
-import modelo.dao.RespuestasJpaController;
-import modelo.entidades.Posts;
-import modelo.entidades.Respuestas;
 
 /**
  *
  * @author alanr
  */
-public class EliminarPost extends HttpServlet {
+public class MenuBlog extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,33 +32,14 @@ public class EliminarPost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=latin1");
-        Long id = Long.parseLong(request.getParameter("id"));
-        String error = "";
+        String vista = "/admin/menuBlog.jsp";
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
         PostsJpaController pjc = new PostsJpaController(emf);
-        RespuestasJpaController rjc = new RespuestasJpaController(emf);
-        try {
-            List<Respuestas> respuestas = rjc.findRespuestasEntities();
-
-            for (int j = 0; j < respuestas.size(); j++) {
-                if (id == respuestas.get(j).getId()) {
-                    rjc.destroy(respuestas.get(j).getId());
-                }
-
-            }
-            pjc.destroy(id);
-        } catch (Exception e) {
-            error = "error al borrar este post";
-            error = e.getMessage();
+        request.setAttribute("Posts", pjc.findPostsEntities());
+        if (request.getParameter("error") != null) {
+            request.setAttribute("error", request.getParameter("error"));
         }
-
-        if (error.isEmpty()) {
-            response.sendRedirect("MenuBlog");
-            return;
-        } else {
-            response.sendRedirect("MenuBlog?error=" + URLEncoder.encode(error, "latin1"));
-        }
+        getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

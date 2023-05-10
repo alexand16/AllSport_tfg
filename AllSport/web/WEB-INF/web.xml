@@ -56,6 +56,10 @@
         <servlet-name>EliminarRespuesta</servlet-name>
         <servlet-class>controlador.admin.EliminarRespuesta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MenuBlog</servlet-name>
+        <servlet-class>controlador.admin.MenuBlog</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>EliminarRespuesta</servlet-name>
         <url-pattern>/EliminarRespuesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuBlog</servlet-name>
+        <url-pattern>/MenuBlog</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
