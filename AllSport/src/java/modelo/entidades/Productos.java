@@ -41,6 +41,9 @@ public class Productos implements Serializable {
     @Column(name = "cantidad_stock")
     private Integer cantidadStock;
 
+    @Column(name = "img_producto")
+    private String imgProducto;
+
     //getters & setters
     public Long getId() {
         return id;
@@ -90,8 +93,16 @@ public class Productos implements Serializable {
         this.cantidadStock = cantidadStock;
     }
 
+    public String getImgProducto() {
+        return imgProducto;
+    }
+
+    public void setImgProducto(String imgProducto) {
+        this.imgProducto = imgProducto;
+    }
     
     
+
     @Override
     public int hashCode() {
         int hash = 0;
