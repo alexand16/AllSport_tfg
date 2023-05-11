@@ -46,7 +46,7 @@ public class EliminarPost extends HttpServlet {
         try {
             List<Respuestas> respuestas = rjc.findRespuestasEntities();
             for (int j = 0; j < respuestas.size(); j++) {
-                if (id == respuestas.get(j).getId()) {
+                if (id == respuestas.get(j).getPost().getId()) {
                     rjc.destroy(respuestas.get(j).getId());
                 }
             }
