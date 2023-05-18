@@ -6,6 +6,7 @@
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/CrearPost.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/dao/ProductosJpaController.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/crearPost.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Clientes.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/EliminarCliente.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Productos.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Posts.java</file>
@@ -19,9 +20,11 @@
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/MenuClientes.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/menuBlog.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/EliminarPost.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Login.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/tienda.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/MenuBlog.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Tienda.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/usuarioR/cesta.jsp</file>
         </group>
     </open-files>
 </project-private>

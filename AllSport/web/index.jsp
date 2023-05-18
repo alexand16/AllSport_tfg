@@ -68,7 +68,7 @@
                                                         aria-expanded="false"
                                                         >
                                                         <%--
-                                                        verifica si usuario no es nulo.
+                                                        verifica que el usuario no sea nulo.
                                                         Si es así, verifica si la propiedad rutaImg del objeto usuario no está vacía.
                                                             Si esto es verdadero, se muestra la imagen junto a su nombre.
                                                             De lo contrario, se muestra el icono de persona predeterminado junto a su nombre.
@@ -79,7 +79,7 @@
                                                                 <span class="text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
                                                                 <c:choose>
                                                                     <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="alt" width="48px" height="48"/>
+                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="alt" width="36" height="36"/>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

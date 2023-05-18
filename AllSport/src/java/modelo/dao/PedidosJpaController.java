@@ -10,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
@@ -133,5 +135,20 @@ public class PedidosJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public List<Pedidos> findPedidosByIDCliente(long idCliente) {
+        EntityManager em = getEntityManager();
+        try {
+            // Crear la consulta para obtener los equipos de la liga
+            TypedQuery<Pedidos> query = em.createQuery("SELECT p FROM Pedidos p where p.cliente.id = :idCliente", Pedidos.class);
+            query.setParameter("idCliente", idCliente);
+
+            // Ejecutar la consulta y devolver los resultados
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }
