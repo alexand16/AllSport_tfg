@@ -8,33 +8,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <title>Cesta de compras</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <c:choose>
-            <c:when test="${usuario != null}">
-                <span class="text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
+        <div class="container">
+            <div class="jumbotron mt-4">
+                <h2 class="display-4">Cesta de compras</h2>
                 <c:choose>
-                    <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="alt" width="48px" height="48"/>
+                    <c:when test="${cesta.size() > 0}">
+
+                        <ul id="items-cesta" class="list-group">
+                            <c:forEach items="${productosPedidos}" var="pp">
+                                <li class="list-group-item d-flex align-items-center justify-content-between">
+                                    <img src="<c:out value='${pp.producto.imgProducto}'/>" alt="<c:out value='${pp.producto.nombreProducto}'/>" width="100px" height="100px" class="mr-3">
+                                    <span class="d-flex align-items-center justify-content-between"><c:out value='${pp.producto.nombreProducto}'/> | <c:out value='${(pp.producto.precio) * pp.cantidad}'/>&euro; &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <form action="Cesta" method="POST">
+                                            <input type="hidden" name="productId" value="${pp.producto.id}">
+                                            <input type="number" name="quantity" value="${pp.cantidad}" min="1" max="${pp.producto.cantidadStock}" class="ms-5">
+                                            <input type="submit" value="Confirmar Cantidad" class="btn btn-success m-2">
+                                        </form>
+                                        <form action="EliminarProducto" method="POST" class="">
+                                            <input type="hidden" name="productId" value="${pp.id}">
+                                            <input type="submit" value="Eliminar" class="btn btn-danger m-2">
+                                        </form>
+                                    </span>
+                                </li>
+                            </c:forEach>
+                            <li class="list-group-item d-flex justify-content-end">
+                                Total a pagar: <c:out value="${totalAPagar}"/>&euro;
+                            </li>
+                        </ul>
+                        <form action="GraciasPorSuCompra" method="post">
+                            <input type="submit" value="Procesar cesta" class="btn btn-primary mt-3">
+                            <a href="Tienda" class="btn btn-secondary mt-3">Volver</a>
+                        </form>
                     </c:when>
                     <c:otherwise>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg>
+                        <li class="list-group-item">
+                            La cesta está vacía, añade un producto a tu cesta en la tienda <a href="Tienda" class="btn btn-secondary">Volver</a>
+                        </li>
+                        </ul>
+                        </form>
                     </c:otherwise>
                 </c:choose>
-                <span class="text-light">&nbsp/&nbsp<c:out value="${usuario.puntos}"/> Puntos</span>        
-            </c:when>
-            <c:otherwise>
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-            </c:otherwise>
-        </c:choose> 
+            </div>
+        </div>
+        <c:if test="${not empty error}">
+            <div class="alert alert-danger">
+                ${error}
+            </div>
+        </c:if>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 </html>
+
+

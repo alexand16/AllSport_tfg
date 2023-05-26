@@ -64,6 +64,18 @@
         <servlet-name>Tienda</servlet-name>
         <servlet-class>controlador.Tienda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cesta</servlet-name>
+        <servlet-class>controlador.usuarioR.Cesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarProducto</servlet-name>
+        <servlet-class>controlador.usuarioR.EliminarProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GraciasPorSuCompra</servlet-name>
+        <servlet-class>controlador.usuarioR.GraciasPorSuCompra</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -127,6 +139,18 @@
     <servlet-mapping>
         <servlet-name>Tienda</servlet-name>
         <url-pattern>/Tienda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cesta</servlet-name>
+        <url-pattern>/Cesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarProducto</servlet-name>
+        <url-pattern>/EliminarProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GraciasPorSuCompra</servlet-name>
+        <url-pattern>/GraciasPorSuCompra</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

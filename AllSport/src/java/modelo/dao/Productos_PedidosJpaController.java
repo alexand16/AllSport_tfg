@@ -10,9 +10,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
+import modelo.entidades.Pedidos;
+import modelo.entidades.Productos;
 import modelo.entidades.Productos_Pedidos;
 
 /**
@@ -133,5 +137,35 @@ public class Productos_PedidosJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public List<Productos_Pedidos> findProductosPedidosByIDPedido(long idPedido) {
+        EntityManager em = getEntityManager();
+        try {
+            // Crear la consulta para obtener los pedidos del cliente a buscar
+            TypedQuery<Productos_Pedidos> query = em.createQuery("SELECT p FROM Productos_Pedidos p where p.pedido.id = :idPedido", Productos_Pedidos.class);
+            query.setParameter("idPedido", idPedido);
+
+            // Ejecutar la consulta y devolver los resultados
+            return query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+    public Productos_Pedidos findProductosPedidosByIDProducto(long idProducto) {
+        EntityManager em = getEntityManager();
+        try {
+            // Crear la consulta para obtener los productos pedidos en funcion de su id
+            TypedQuery<Productos_Pedidos> query = em.createQuery("SELECT p FROM Productos_Pedidos p where p.producto.id = :idProducto", Productos_Pedidos.class);
+            query.setParameter("idProducto", idProducto);
+
+            // Ejecutar la consulta y devolver los resultados
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
 }

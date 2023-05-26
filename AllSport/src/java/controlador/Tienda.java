@@ -62,25 +62,47 @@ public class Tienda extends HttpServlet {
                 ultimoPedido = pedidosCliente.get(pedidosCliente.size() - 1);
             } else {
                 //si el cliente no tiene pedidos
-                Pedidos pedido = new Pedidos();
-                pedido.setCliente((Clientes) session.getAttribute("usuario"));
-                pejc.create(pedido);//cuando compre edita y añade los datos necesarios
+                ultimoPedido.setCliente((Clientes) session.getAttribute("usuario"));
+                pejc.create(ultimoPedido);//cuando compre edita y añade los datos necesarios
             }
-            //recogemos el producto seleccionado
+            // Recogemos el producto seleccionado
             Productos producto = pjc.findProductos(Long.parseLong(request.getParameter("id")));
-            //lo añadimos a la lista del usuario (Producto_Pedido)
-            ArrayList<Productos> cesta = new ArrayList<>();
-            cesta.add(producto);
-            Productos_Pedidos productosP = new Productos_Pedidos();
-            for (int i = 0; i < cesta.size(); i++) {
-                if (cesta.get(i) == producto) {//esto esta raro!!!
-                    productosP.setProducto(producto);
-                    productosP.setPedido(ultimoPedido);
-                    //productos.setCantidad(); la cantidad se obtiene de la cesta editando este Producto_pedido
-                    ppjc.create(productosP);
+
+            // Obtenemos la lista de la cesta del usuario (Producto_Pedido)
+            ArrayList<Productos> cesta;
+            if (session.getAttribute("cesta") != null) {
+                cesta = (ArrayList<Productos>) session.getAttribute("cesta");
+            } else {
+                cesta = new ArrayList<Productos>();
+            }
+
+            // Verificamos si el producto ya está en la cesta
+            boolean productoExistente = false;
+            for (Productos p : cesta) {
+                if (p.equals(producto) || p.getCantidadStock() <= 0) {
+                    productoExistente = true;
+                    break;
                 }
             }
-            //avisamos al usuario de que se ha añadido a la cesta
+
+            if (!productoExistente) {
+                Productos_Pedidos productosP = new Productos_Pedidos();
+                productosP.setProducto(producto);
+                productosP.setPedido(ultimoPedido);
+                productosP.setCantidad(1);//por defecto 1 si se quiere cambiar se debe editar en la cesta
+                ppjc.create(productosP);
+
+                // Añadimos el producto a la cesta
+                cesta.add(producto);
+                // Avisamos al usuario de que se ha añadido a la cesta
+                // Guardamos un mensaje en la variable de sesión
+                session.setAttribute("mensaje", "Producto añadido a la cesta.");
+            } else {
+                // Si el producto ya está en la cesta, mostramos un mensaje de error
+                session.setAttribute("mensaje", "El producto ya está en la cesta, o no queda en nuestros almacenes.");
+            }
+
+            session.setAttribute("cesta", cesta);
 
         }
         getServletContext().getRequestDispatcher(vista).forward(request, response);

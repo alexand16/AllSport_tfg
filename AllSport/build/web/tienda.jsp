@@ -187,17 +187,24 @@
         </nav>
         <!---------------------------------- End Nav Header ------------------------------------------->
         <!---------------------------------- Start Main Content (Shop)------------------------------------------->
-        <%-- comment 
-        <c:forEach items="${productos}" var="p">
-            <c:out value="${p.nombreProducto}"/>
-            <c:out value="${p.descripcion}"/>
-            <c:out value="${p.precioEnPuntos}"/>
-            <c:out value="${p.precio}"/>
-            
-            <img src="<c:out value="${p.imgProducto}"/>" alt="<c:out value="${p.nombreProducto}"/>" width="52px" height="52px"/> 
-            <hr>
-        </c:forEach>
-        --%>
+        <%-- Obtener el mensaje de la variable de sesión --%>
+        <%
+            String mensaje = (String) session.getAttribute("mensaje");
+            session.removeAttribute("mensaje"); // Limpiar el mensaje después de mostrarlo
+        %>
+        <%-- Mostrar el mensaje al usuario --%>
+        <% if (mensaje != null && !mensaje.isEmpty()) {%>
+        <div id="mensaje" class="alert alert-success w-auto"><%= mensaje%></div>
+        <script>
+            // Ocultar el mensaje después de 2 segundos
+            setTimeout(function () {
+                var mensajeDiv = document.getElementById("mensaje");
+                if (mensajeDiv) {
+                    mensajeDiv.style.display = "none";
+                }
+            }, 2000);
+        </script>
+        <% }%>
         <div class="shopping-grid">
             <div class="container">
                 <h3 class="" align="center">All Sports Shop</h3>
@@ -209,7 +216,7 @@
                                     <div class="product-image7">
                                         <img class="pic-1" src="<c:out value="${p.imgProducto}"/>" alt="<c:out value="${p.nombreProducto}"/>" width="52px" height="52px"/> 
                                         <img class="pic-2" src="<c:out value="${p.imgProducto}"/>" alt="<c:out value="${p.nombreProducto}"/>" width="52px" height="52px"/> 
-                                        <span class="product-new-label stock"> Unidades: <c:out value="${p.cantidadStock}"/></span>
+                                        <span class="product-new-label stock"> Stock: <c:out value="${p.cantidadStock}"/></span>
                                     </div>
                                 </div>
                                 <div class="product-content d-flex flex-column align-items-center mb-3">
