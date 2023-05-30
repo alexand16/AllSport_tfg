@@ -17,19 +17,16 @@
     <body>
         <div class="container">
             <h1 class="display-4">Gracias por su compra</h1>
-            <div class="mt-4">
-                <!--
-                <a href="web/assets/facturas/${nombreFactura}" class="btn btn-primary">Ver factura</a>
-                <iframe src="C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/assets/facturas/factura3853-26052023.pdf" width="100%" height="600px"></iframe>
-                <embed src="C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/assets/facturas/factura3853-26052023.pdf" type="application/pdf" width="100%" height="600px" />
-                <iframe src="/assets/facturas/factura3853-26052023.pdf" width="100%" height="600px"></iframe>
-                -->
+            <div class="mt-4">           
+                <a href="<c:out value='${nombreFactura}'/>" class="btn btn-primary">Ver factura</a>
+                <iframe src="<c:out value='${nombreFactura}'/>" width="100%" height="600px"></iframe>
+                <embed src="<c:out value='${nombreFactura}'/>" type="application/pdf" width="100%" height="600px"/>
                 <a href="Tienda" class="btn btn-secondary">Volver</a>
             </div>
         </div>
-    <c:if test="${! empty error}">
-        <div class="error mt-3">${error}</div>
-    </c:if>
-</body>
+        <c:if test="${! empty error}">
+            <div class="error mt-3">${error}</div>
+        </c:if>
+    </body>
 </html>
 

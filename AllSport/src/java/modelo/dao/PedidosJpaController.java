@@ -164,7 +164,7 @@ public class PedidosJpaController implements Serializable {
         }
     }
 
-    public String generarFactura(long pedidoId, List<Productos_Pedidos> pp, Clientes cliente) {
+    public String generarFactura(long pedidoId, List<Productos_Pedidos> pp, Clientes cliente, String ruta) {
         EntityManager em = emf.createEntityManager();
         String nombreArchivo = "";
         try {
@@ -181,10 +181,10 @@ public class PedidosJpaController implements Serializable {
                 double acumulador = 0;
                 double iva = 0.21;
                 DecimalFormat decimalFormat = new DecimalFormat("#.00");
-                
+
                 // Crear un objeto PDPageContentStream para escribir en la página
                 PDPageContentStream contentStream = new PDPageContentStream(document, page);
-                PDImageXObject image = PDImageXObject.createFromFile("C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/background.jpg", document);
+                PDImageXObject image = PDImageXObject.createFromFile(ruta + "\\..\\img\\background.jpg", document);
 
                 // Configurar la fuente y el tamaño de la fuente
                 contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
@@ -230,15 +230,14 @@ public class PedidosJpaController implements Serializable {
                 contentStream.showText(totalAproximado + "\u20AC"); // total aproximado
                 contentStream.endText();
                 contentStream.close();
-                
+
                 LocalDateTime currentDateTime = LocalDateTime.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
                 String formattedDate = currentDateTime.format(formatter);
-                
+
                 // Guardar el documento PDF
-                document.save("C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/assets/facturas/"
-                        + "factura" + pedidoId + "-" + formattedDate + ".pdf");
-                nombreArchivo = "factura" + pedidoId + "-" + formattedDate + ".pdf"; 
+                document.save(ruta + "\\" + "factura" + pedidoId + "-" + formattedDate + ".pdf");
+                nombreArchivo = "factura" + pedidoId + "-" + formattedDate + ".pdf";
                 document.close();
 
                 System.out.println("Factura generada exitosamente.");
@@ -253,6 +252,6 @@ public class PedidosJpaController implements Serializable {
         } finally {
             em.close();
         }
-         return nombreArchivo;
+        return nombreArchivo;
     }
 }

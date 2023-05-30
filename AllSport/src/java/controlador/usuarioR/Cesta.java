@@ -66,7 +66,8 @@ public class Cesta extends HttpServlet {
            
             DecimalFormat decimalFormat = new DecimalFormat("#.00");
             String totalFormateado = decimalFormat.format(totalAPagar);
-            request.setAttribute("totalAPagar", totalFormateado);
+            totalFormateado = totalFormateado.replace(",", ".");
+            session.setAttribute("totalAPagar", totalFormateado);
             for (int i = 0; i < productosPedidos.size(); i++) {
                 cesta.add(productosPedidos.get(i).getProducto());
             }
@@ -82,7 +83,7 @@ public class Cesta extends HttpServlet {
         }
         if (request.getParameter("productId") != null) {
             Productos_Pedidos pp = new Productos_Pedidos();
-            pp = ppjc.findProductosPedidosByIDProducto(Long.parseLong(request.getParameter("productId")));
+            pp = ppjc.findProductosPedidosByIDProducto(Long.parseLong(request.getParameter("productId")), ultimoPedido.getId());
             pp.setCantidad(Integer.parseInt(request.getParameter("quantity")));
             try {
                 ppjc.edit(pp);

@@ -59,49 +59,62 @@ public class Tienda extends HttpServlet {
             List<Pedidos> pedidosCliente = pejc.findPedidosByIDCliente(idCliente);
             //comprueba si el pedido esta hecho para crearlo otro o no
             if (pedidosCliente.size() > 0) {
-                ultimoPedido = pedidosCliente.get(pedidosCliente.size() - 1);
-            } else {
-                //si el cliente no tiene pedidos
-                ultimoPedido.setCliente((Clientes) session.getAttribute("usuario"));
-                pejc.create(ultimoPedido);//cuando compre edita y añade los datos necesarios
+                if (pedidosCliente.get(pedidosCliente.size() - 1).getEstadoPedido() == null) {
+                    ultimoPedido = pedidosCliente.get(pedidosCliente.size() - 1);
+                } else {
+                    //si el cliente no tiene pedidos
+                    ultimoPedido.setCliente((Clientes) session.getAttribute("usuario"));
+                    pejc.create(ultimoPedido);//cuando compre edita y añade los datos necesarios
+                }
             }
             // Recogemos el producto seleccionado
             Productos producto = pjc.findProductos(Long.parseLong(request.getParameter("id")));
 
             // Obtenemos la lista de la cesta del usuario (Producto_Pedido)
             ArrayList<Productos> cesta;
-            if (session.getAttribute("cesta") != null) {
-                cesta = (ArrayList<Productos>) session.getAttribute("cesta");
+            if (ppjc.findProductosPedidosByIDPedido(ultimoPedido.getId()).size() > 0) {
+                ArrayList<Productos> cestaAux = new ArrayList<Productos>();
+                for (int i = 0; i < ppjc.findProductosPedidosByIDPedido(ultimoPedido.getId()).size(); i++) {
+                    cestaAux.add(ppjc.findProductosPedidosByIDPedido(ultimoPedido.getId()).get(i).getProducto());
+                }
+                cesta = cestaAux;
             } else {
-                cesta = new ArrayList<Productos>();
-            }
-
-            // Verificamos si el producto ya está en la cesta
-            boolean productoExistente = false;
-            for (Productos p : cesta) {
-                if (p.equals(producto) || p.getCantidadStock() <= 0) {
-                    productoExistente = true;
-                    break;
+                if (session.getAttribute("cesta") != null) {
+                    cesta = (ArrayList<Productos>) session.getAttribute("cesta");
+                } else {
+                    cesta = new ArrayList<Productos>();
                 }
             }
+            if (producto.getCantidadStock() != 0) {
+                // Verificamos si el producto ya está en la cesta
+                boolean productoExistente = false;
+                for (Productos p : cesta) {
+                    if (p.equals(producto)) {
+                        productoExistente = true;
+                        break;
+                    }
+                }
 
-            if (!productoExistente) {
-                Productos_Pedidos productosP = new Productos_Pedidos();
-                productosP.setProducto(producto);
-                productosP.setPedido(ultimoPedido);
-                productosP.setCantidad(1);//por defecto 1 si se quiere cambiar se debe editar en la cesta
-                ppjc.create(productosP);
+                if (!productoExistente) {
+                    Productos_Pedidos productosP = new Productos_Pedidos();
+                    productosP.setProducto(producto);
+                    productosP.setPedido(ultimoPedido);
+                    productosP.setCantidad(1);//por defecto 1 si se quiere cambiar se debe editar en la cesta
+                    ppjc.create(productosP);
 
-                // Añadimos el producto a la cesta
-                cesta.add(producto);
-                // Avisamos al usuario de que se ha añadido a la cesta
-                // Guardamos un mensaje en la variable de sesión
-                session.setAttribute("mensaje", "Producto añadido a la cesta.");
+                    // Añadimos el producto a la cesta
+                    cesta.add(producto);
+                    // Avisamos al usuario de que se ha añadido a la cesta
+                    // Guardamos un mensaje en la variable de sesión
+                    session.setAttribute("mensaje", "Producto añadido a la cesta.");
+                } else {
+                    // Si el producto ya está en la cesta, mostramos un mensaje de error
+                    session.setAttribute("mensaje", "El producto ya está en la cesta.");
+                }
             } else {
-                // Si el producto ya está en la cesta, mostramos un mensaje de error
-                session.setAttribute("mensaje", "El producto ya está en la cesta, o no queda en nuestros almacenes.");
+                // Si el producto no tiene stock
+                session.setAttribute("mensaje", "No queda en nuestros almacenes de este producto.");
             }
-
             session.setAttribute("cesta", cesta);
 
         }

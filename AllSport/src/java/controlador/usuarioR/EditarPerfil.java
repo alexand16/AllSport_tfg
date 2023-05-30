@@ -4,26 +4,42 @@
  */
 package controlador.usuarioR;
 
-import com.mysql.cj.Session;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.Path;
+
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+
+import javax.servlet.http.HttpSession;
+
+import modelo.dao.ClientesJpaController;
+
+import modelo.entidades.Clientes;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import modelo.dao.ClientesJpaController;
-import modelo.dao.CuotasJpaController;
-import modelo.entidades.Clientes;
-
+import javax.servlet.http.Part;
 
 /**
  *
  * @author alanr
  */
+@WebServlet("/guardarPerfil")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50) // 50MB
 public class EditarPerfil extends HttpServlet {
 
     /**
@@ -53,6 +69,31 @@ public class EditarPerfil extends HttpServlet {
             String email = request.getParameter("email");
             LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
             String telefono = request.getParameter("telefono");
+            Part imagenPart = request.getPart("imagenCliente");
+            if (imagenPart != null && imagenPart.getSize() > 0) {
+                // El usuario ha subido una nueva imagen
+                String nombreArchivo = cliente.getId() + "_" + imagenPart.getSubmittedFileName();
+
+                // Obtener la ruta absoluta del directorio donde se guardan las imágenes
+                String directorioDestino = request.getServletContext().getRealPath("assets/imgClientes");
+
+                // Crear el objeto File para la ruta completa del archivo
+                File rutaCompleta = new File(directorioDestino, nombreArchivo);
+
+                // Guardar la imagen con el nombre único en la ubicación deseada
+                try (InputStream inputStream = imagenPart.getInputStream();
+                        OutputStream outputStream = new FileOutputStream(rutaCompleta)) {
+
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                cliente.setRutaImg(nombreArchivo);
+            }
 
             cliente.setNombre(nombre);
             cliente.setApellidos(apellidos);
@@ -62,7 +103,8 @@ public class EditarPerfil extends HttpServlet {
 
             try {
                 djc.edit(cliente);
-                response.sendRedirect("index.jsp");
+                request.setAttribute("cliente", cliente);
+                response.sendRedirect("RecargarCliente");
                 return;
             } catch (Exception e) {
                 request.setAttribute("error", "Error al actualizar usuario");

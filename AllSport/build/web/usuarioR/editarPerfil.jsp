@@ -37,11 +37,21 @@
                             <div class="alert alert-info alert-dismissible absolue center" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Profile save with success</span></div>
                         </div>
                     </div>
-                    <form style="margin-bottom: 20px;">
+                    <form style="margin-bottom: 20px;" method="POST" action="EditarPerfil" enctype="multipart/form-data">
                         <div class="row profile-row">
                             <div class="col-md-4 relative" style="padding-left: 15px;padding-right: 19px;">
-                                <img  class="rounded-circle me-5" src="assets/imgClientes/${cliente.rutaImg}" width="250px" height="250px" alt="alt"/>                             
-                                <input class="form-control form-control" type="file" name="avatar-file" id="file" style="margin-right: 32px;padding-right: 0px;padding-left: 10px; display: none;">
+                                <c:choose>
+                                    <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
+                                        <img id="imagenPerfil" class="rounded-circle me-5" src="assets/imgClientes/${cliente.rutaImg}" width="250px" height="250px" alt="${cliente.rutaImg}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="250px" height="250px" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
+                                    </c:otherwise>
+                                </c:choose>
+                                <input class="form-control form-control" type="file" name="imagenCliente" id="file" style="margin-right: 32px;padding-right: 0px;padding-left: 10px; display: none;">
                                 <label for="file" class="btn btn-secondary ms-5 mt-3" style="cursor: pointer;">Cambiar Imagen</label>
                             </div>
                             <div class="col-md-8">
@@ -79,7 +89,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <i>los cambios se aplicaran en la proxima sesión*</i>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-12 content-right">
@@ -97,11 +106,27 @@
                 </c:if>
             </section>
         </main>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Obtener el campo input file
+                var inputImagen = document.getElementById('file');
+
+                // Agregar un evento de escucha al campo input file
+                inputImagen.addEventListener('change', function (e) {
+                    // Obtener el archivo seleccionado
+                    var archivo = e.target.files[0];
+
+                    // Crear un objeto URL con el archivo seleccionado
+                    var urlImagen = URL.createObjectURL(archivo);
+
+                    // Actualizar el atributo src del elemento img con la URL de la imagen
+                    $('#imagenPerfil').attr('src', urlImagen);
+                });
+            });
+        </script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-        <script src="assets/js/Profile-Edit-Form.js"></script>
-        <script src="assets/js/Simple-Slider.js"></script>
-        <script src="assets/js/theme.js"></script>
     </body>
 </html>

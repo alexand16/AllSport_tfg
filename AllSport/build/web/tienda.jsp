@@ -208,6 +208,9 @@
         <div class="shopping-grid">
             <div class="container">
                 <h3 class="" align="center">All Sports Shop</h3>
+                <c:if test="${usuario == null}">
+                    <i>Necesitas estar registrado para poder comprar en la tienda*<br><br></i>
+                </c:if>
                 <div class="row">
                     <c:forEach items="${productos}" var="p">
                         <div class="col-md-3 col-sm-6">
@@ -224,13 +227,15 @@
                                     <div class="price mb-1">
                                         <c:out value="${p.precio}"/>&#8364; / <c:out value="${p.precioEnPuntos}"/><small class="text-muted"> Puntos</small>
                                     </div>
-                                    <div class="comprar">
-                                        <form action="Tienda" method="post">
-                                            <input type="hidden" name="id" value="${p.id}">
-                                            <button type="submit" class="btn btn-danger btn-sm">Añadir a la cesta 
-                                            </button>
-                                        </form>
-                                    </div>
+                                    <c:if test="${usuario != null}">
+                                        <div class="comprar">
+                                            <form action="Tienda" method="post">
+                                                <input type="hidden" name="id" value="${p.id}">
+                                                <button type="submit" class="btn btn-danger btn-sm">Añadir a la cesta 
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </a>
                         </div>

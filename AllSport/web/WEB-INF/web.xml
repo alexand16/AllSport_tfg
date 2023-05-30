@@ -76,6 +76,18 @@
         <servlet-name>GraciasPorSuCompra</servlet-name>
         <servlet-class>controlador.usuarioR.GraciasPorSuCompra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecargarCliente</servlet-name>
+        <servlet-class>controlador.usuarioR.RecargarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GestionarPedidos</servlet-name>
+        <servlet-class>controlador.admin.GestionarPedidos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultarPedido</servlet-name>
+        <servlet-class>controlador.usuarioR.ConsultarPedido</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>GraciasPorSuCompra</servlet-name>
         <url-pattern>/GraciasPorSuCompra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecargarCliente</servlet-name>
+        <url-pattern>/RecargarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GestionarPedidos</servlet-name>
+        <url-pattern>/GestionarPedidos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultarPedido</servlet-name>
+        <url-pattern>/ConsultarPedido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

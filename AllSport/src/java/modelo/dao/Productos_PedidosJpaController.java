@@ -153,12 +153,13 @@ public class Productos_PedidosJpaController implements Serializable {
             em.close();
         }
     }
-    public Productos_Pedidos findProductosPedidosByIDProducto(long idProducto) {
+    public Productos_Pedidos findProductosPedidosByIDProducto(long idProducto, long idPedido) {
         EntityManager em = getEntityManager();
         try {
             // Crear la consulta para obtener los productos pedidos en funcion de su id
-            TypedQuery<Productos_Pedidos> query = em.createQuery("SELECT p FROM Productos_Pedidos p where p.producto.id = :idProducto", Productos_Pedidos.class);
+            TypedQuery<Productos_Pedidos> query = em.createQuery("SELECT p FROM Productos_Pedidos p where p.producto.id = :idProducto AND p.pedido.id = :idPedido ", Productos_Pedidos.class);
             query.setParameter("idProducto", idProducto);
+            query.setParameter("idPedido", idPedido);
 
             // Ejecutar la consulta y devolver los resultados
             return query.getSingleResult();
