@@ -51,7 +51,7 @@
                                         </svg>
                                     </c:otherwise>
                                 </c:choose>
-                                <input class="form-control form-control" type="file" name="imagenCliente" id="file" style="margin-right: 32px;padding-right: 0px;padding-left: 10px; display: none;">
+                                <input class="form-control form-control" type="file" name="imagenCliente" id="file" accept=".png, .jpg, .jpeg, .gif" style="margin-right: 32px;padding-right: 0px;padding-left: 10px; display: none;">
                                 <label for="file" class="btn btn-secondary ms-5 mt-3" style="cursor: pointer;">Cambiar Imagen</label>
                             </div>
                             <div class="col-md-8">
@@ -90,6 +90,8 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <span>Tipo de subscripción: ${usuario.cuota.nombre} &nbsp; &nbsp; | &nbsp; &nbsp;Estado: ${usuario.estadoMembresia}</span>
+                                <hr>
                                 <div class="row">
                                     <div class="col-md-12 content-right">
                                         <button class="btn btn-primary form-btn" type="submit">GUARDAR</button>
@@ -101,8 +103,11 @@
                         </div>
                     </form>
                 </div>
-                <c:if test="${! empty error}">
-                    <div class="error mt-3">${error}</div>
+                <i>La imagen solo admite los formatos png, jpg, jepg y gif*</i>
+                <c:if test="${not empty error}">    
+                    <div class="alert alert-danger">
+                        ${error}
+                    </div>
                 </c:if>
             </section>
         </main>

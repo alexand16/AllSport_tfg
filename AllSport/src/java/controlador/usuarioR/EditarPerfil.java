@@ -107,7 +107,7 @@ public class EditarPerfil extends HttpServlet {
                 response.sendRedirect("RecargarCliente");
                 return;
             } catch (Exception e) {
-                request.setAttribute("error", "Error al actualizar usuario");
+                request.setAttribute("error", e.getMessage());
                 request.setAttribute("cliente", cliente);
             }
         } else {

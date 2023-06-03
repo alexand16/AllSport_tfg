@@ -12,19 +12,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Home</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/Roboto.css">
-        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-        <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
-        <link rel="stylesheet" href="assets/css/Pretty-Registration-Form-.css">
-        <link rel="stylesheet" href="assets/css/Pricing-Yearly--Monthly-badges.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-styles.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
-        <link rel="stylesheet" href="assets/css/Shopping-Grid.css">
-        <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
+        <link rel="stylesheet" href="assets/css/Pricing-Yearly--Monthly-badges.css">
+        <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->
@@ -47,10 +41,7 @@
                                             <a class="nav-link" href="aboutUs.jsp">Sobre Nosotros</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="index.jsp">Planes Presenciales</a>
-                                        </li>
-                                        <li class="nav-item mt-1">
-                                            <a class="nav-link" href="index.jsp">Planes Online</a>
+                                            <a class="nav-link" href="Subscripciones">Subscripciones</a>
                                         </li>
                                         <li class="nav-item mt-1">
                                             <a class="nav-link" href="Blog">Blog</a>
@@ -114,6 +105,15 @@
                                                                     </li>
                                                                 </c:if>
                                                                 <li>
+                                                                    <a class="dropdown-item" href="ListaDeEjercicios"
+                                                                       ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                                                                        </svg>
+                                                                        Lista de ejercicios</a
+                                                                    >
+                                                                </li>
+                                                                <li>
                                                                     <a class="dropdown-item" href="ConsultarPedido"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
                                                                         <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
@@ -121,7 +121,6 @@
                                                                         Consultar Pedido</a
                                                                     >
                                                                 </li>
-
                                                                 <li>
                                                                     <a class="dropdown-item" href="EditarPerfil"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
@@ -222,31 +221,7 @@
                     <div>
                         <h4>Como Funcionamos</h4>
                         <p>Erat netus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore non officia excepturi, magnam necessitatibus ratione omnis veniam modi harum, consequuntur eaque eveniet reiciendis ea voluptatem repellat nulla vero odit at. est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p>
-                        <a href="Blog" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
-                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
-                            </svg></a>
-                    </div>
-                </div>
-                <hr class="my-5">
-                <div class="d-flex align-items-center align-items-md-start align-items-xl-center">
-                    <div class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center me-4 d-inline-block bs-icon xl" style="background: var(--bs-red);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bell">
-                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"></path>
-                        </svg></div>
-                    <div>
-                        <h4>Nutricion y Dietistica</h4>
-                        <p>Erat netus est hendrerit,Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis perspiciatis nesciunt, non et quibusdam similique ab praesentium quod cum amet consectetur iusto porro? Eligendi delectus labore repudiandae doloremque tenetur dolore? nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><a href="nutricionDietistica.html" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
-                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
-                            </svg></a>
-                    </div>
-                </div>
-                <hr class="my-5">
-                <div class="d-flex align-items-center align-items-md-start align-items-xl-center">
-                    <div class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center me-4 d-inline-block bs-icon xl" style="background: var(--bs-red);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bell">
-                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"></path>
-                        </svg></div>
-                    <div>
-                        <h4>Online Trainer</h4>
-                        <p>Erat netus est hendrerit,Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis perspiciatis nesciunt, non et quibusdam similique ab praesentium quod cum amet consectetur iusto porro? Eligendi delectus labore repudiandae doloremque tenetur dolore? nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p><a href="onlineTrainer.html" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                        <a href="aboutUs.jsp" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
                             </svg></a>
                     </div>
@@ -258,7 +233,7 @@
                         </svg></div>
                     <div>
                         <h4>Tienda</h4>
-                        <p>Encuentra aqui tus productos para el fitness</p><a href="tienda.html" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
+                        <p>Encuentra aqui tus productos para el fitness</p><a href="Tienda" style="color: var(--bs-red);">Leer Mas&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
                             </svg></a>  
                     </div>
@@ -271,7 +246,7 @@
                     <h2 class="fw-bold mb-2" style="margin-left: 30px;">¡Apúntate ya!</h2>
                     <p class="mb-0" style="margin-left: 34px;">Entrenanientos personalizados y mucho mas</p>
                 </div>
-                <div class="my-2"><a class="btn btn-primary fs-5 py-2 px-4" role="button" href="cuotas.html" style="background: var(--bs-red);margin-right: 43px;margin-left: 22px;border-color: var(--bs-border-color-translucent);">Inscribirse</a></div>
+                <div class="my-2"><a class="btn btn-primary fs-5 py-2 px-4" role="button" href="Subscripciones" style="background: var(--bs-red);margin-right: 43px;margin-left: 22px;border-color: var(--bs-border-color-translucent);">Inscribirse</a></div>
             </div>
         </section>
     </main>

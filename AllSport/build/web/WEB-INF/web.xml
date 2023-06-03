@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>filtroSesion</filter-name>
+        <filter-class>filtro.filtroSesion</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filtroSesion</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filtroSesion</filter-name>
+        <url-pattern>/usuarioR/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>MenuClientes</servlet-name>
         <servlet-class>controlador.admin.MenuClientes</servlet-class>
@@ -88,6 +100,26 @@
         <servlet-name>ConsultarPedido</servlet-name>
         <servlet-class>controlador.usuarioR.ConsultarPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaDeEjercicios</servlet-name>
+        <servlet-class>controlador.usuarioR.ListaDeEjercicios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarEjercicios</servlet-name>
+        <servlet-class>controlador.usuarioR.EliminarEjercicios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Subscripciones</servlet-name>
+        <servlet-class>controlador.Subscripciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesarSub</servlet-name>
+        <servlet-class>controlador.usuarioR.ProcesarSub</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Ganancias</servlet-name>
+        <servlet-class>controlador.admin.Ganancias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/MenuClientes</url-pattern>
@@ -175,6 +207,26 @@
     <servlet-mapping>
         <servlet-name>ConsultarPedido</servlet-name>
         <url-pattern>/ConsultarPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaDeEjercicios</servlet-name>
+        <url-pattern>/ListaDeEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarEjercicios</servlet-name>
+        <url-pattern>/EliminarEjercicios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Subscripciones</servlet-name>
+        <url-pattern>/Subscripciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarSub</servlet-name>
+        <url-pattern>/ProcesarSub</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ganancias</servlet-name>
+        <url-pattern>/Ganancias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

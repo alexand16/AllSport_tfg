@@ -10,6 +10,8 @@
     <class>modelo.entidades.Valoraciones</class>
     <class>modelo.entidades.Posts</class>
     <class>modelo.entidades.Respuestas</class>
+    <class>modelo.entidades.Ejercicios</class>
+    <class>modelo.entidades.Lista_Ejercicios</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/allsport?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

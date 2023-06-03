@@ -50,10 +50,7 @@
                                             <a class="nav-link" href="aboutUs.jsp">Sobre Nosotros</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="index.jsp">Planes Presenciales</a>
-                                        </li>
-                                        <li class="nav-item mt-1">
-                                            <a class="nav-link" href="index.jsp">Planes Online</a>
+                                            <a class="nav-link" href="Subscripciones">Subscripciones</a>
                                         </li>
                                         <li class="nav-item mt-1">
                                             <a class="nav-link" href="Blog">Blog</a>
@@ -82,7 +79,7 @@
                                                                 <span class="text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
                                                                 <c:choose>
                                                                     <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="alt" width="36" height="36"/>
+                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="${usuario.rutaImg}" width="36" height="36"/>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -91,7 +88,6 @@
                                                                         </svg>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                                <span class="text-light">&nbsp/&nbsp<c:out value="${usuario.puntos}"/> Puntos</span>        
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -123,6 +119,23 @@
                                                                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                                                                         </svg>
                                                                         Cesta</a
+                                                                    >
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="ListaDeEjercicios"
+                                                                       ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                                                                        </svg>
+                                                                        Lista de ejercicios</a
+                                                                    >
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item" href="ConsultarPedido"
+                                                                       ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
+                                                                        <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
+                                                                        </svg>
+                                                                        Consultar Pedido</a
                                                                     >
                                                                 </li>
                                                                 <li>
@@ -210,7 +223,7 @@
                 <h3 class="" align="center">All Sports Shop</h3>
                 <c:if test="${usuario == null}">
                     <i>Necesitas estar registrado para poder comprar en la tienda*<br><br></i>
-                </c:if>
+                    </c:if>
                 <div class="row">
                     <c:forEach items="${productos}" var="p">
                         <div class="col-md-3 col-sm-6">
@@ -243,6 +256,16 @@
                 </div>
             </div>
         </div>
+        <!---------------------------------- Start footer ------------------------------------------->
+        <footer class="page-footer" style="background: linear-gradient(50deg, var(--bs-red) 33%, var(--bs-pink));">
+            <div class="container">
+                <div class="links">
+                    <a class="nav-link" style="color: rgb(255,255,255)" href="aboutUs.jsp">Sobre Nosotros</a><a class="nav-link" style="color: rgb(255,255,255)" href="Blog">Blog</a><a class="nav-link" style="color: rgb(255,255,255)" href="Tienda">Tienda</a>
+                    <div class="social-icons"><a href=https://m.facebook.com/profile.php?id=100049737866622&_rdr#" style="background: var(--bs-black);"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/allsport_santiponce/" style="background: var(--bs-black);"><i class="icon ion-social-instagram-outline"></i></a><a href="https://api.whatsapp.com/send?phone=652982078" style="background: var(--bs-black);"><i class="icon ion-social-whatsapp"></i></a></div>
+                </div>
+            </div>
+        </footer>
+        <!---------------------------------- End footer ------------------------------------------->
         <!---------------------------------- End Main Content------------------------------------------->
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
