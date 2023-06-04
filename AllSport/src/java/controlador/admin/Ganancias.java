@@ -70,6 +70,8 @@ public class Ganancias extends HttpServlet {
                 totalSubscripciones += cliente.get(i).getCuota().getPrecio();
             }
         }
+        totalSubscripciones = Math.round(totalSubscripciones * 100.0) / 100.0;
+        totalPedidos = Math.round(totalPedidos * 100.0) / 100.0;
 
         total = totalPedidos + totalSubscripciones;
         request.setAttribute("totalPedidos", totalPedidos);

@@ -23,7 +23,7 @@
         ></script>
     </head>
     <body>
-        
+
         <div class="container mt-5">
             <h1>Crear Cliente</h1>
             <br>
@@ -80,7 +80,11 @@
                     <c:out value="${error}"/>
                 </div>
             </c:if>
-
+            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/validateCrearCliente.js"></script>
     </body>
 </html>

@@ -56,7 +56,6 @@
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
-                            <option value="${0}">No tiene</option>
                         </select>
                         <div class="form-group">
                             <label for="email">Email:</label>
@@ -89,5 +88,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="assets/js/validateEditarCliente.js"></script>
     </body>
 </html>

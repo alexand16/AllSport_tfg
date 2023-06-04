@@ -50,9 +50,13 @@ public class EditarCliente extends HttpServlet {
             LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
             int puntos = Integer.parseInt(request.getParameter("puntos"));
             String observaciones = request.getParameter("observaciones");
-
+            String telefono = request.getParameter("telefono");
+            String email = request.getParameter("email");
+            
             cliente.setNombre(nombre);
             cliente.setApellidos(apellidos);
+            cliente.setEmail(email);
+            cliente.setTelefono(telefono);
             //cliente.setFechaPago(fechaPago);
             cliente.setCuota(cjc.findCuotas(cuota));
             if (cuota >= 0 && cjc.findCuotas(cuota) != null) {

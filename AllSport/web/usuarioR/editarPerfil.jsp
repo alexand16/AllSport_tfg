@@ -85,7 +85,8 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="telefono" class="form-label">Telefono:</label>
-                                            <input class="form-control" id="telefono" type="text" name="telefono" value="${cliente.telefono}" required>
+                                            <input class="form-control" id="telefono" type="text" name="telefono" value="${cliente.telefono}" required pattern="[0-9]{9}" title="El campo de teléfono debe contener 9 dígitos numéricos.">
+
                                         </div>
                                     </div>
                                 </div>

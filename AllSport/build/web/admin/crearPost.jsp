@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>JSP Page</title>
-                <link
+        <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
@@ -35,14 +35,12 @@
                     <label for="contenido" class="form-label">Contenido:</label>
                     <input type="text" class="form-control" id="contenido" name="contenido" required>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Crear</button> &nbsp   
                 <a href="admin/administrar.jsp" class="btn btn-secondary">Volver
                 </a>
             </form> 
-
             <br>
-
             <c:if test="${not empty error}">
                 <div class="alert alert-danger" role="alert">
                     <c:out value="${error}"/>
@@ -50,5 +48,8 @@
             </c:if>
 
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="assets/js/validateCrearPost.js"></script>
     </body>
 </html>

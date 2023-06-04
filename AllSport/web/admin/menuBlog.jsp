@@ -208,7 +208,7 @@
                                 <td><c:out value="${p.administrador.nombre}"/></td>
                                 <td><c:out value="${p.contenido}"/></td>
                                 <td>
-                                    <form action="EliminarPost" method="get" onsubmit="confirmar(e)">
+                                    <form action="EliminarPost" method="get" onsubmit="return confirmar()">
                                         <input type="hidden" name="id" value="${p.id}">
                                         <button type="submit" class="btn btn-danger">Eliminar 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -241,7 +241,11 @@
                 </svg>
             </a>
         </div>
-
+        <script>
+            function confirmar() {
+                return confirm('¿Estás seguro de que quieres eliminar este post?');
+            }
+        </script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
