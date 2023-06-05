@@ -11,11 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Clientes</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-styles.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
-        <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-Dark-icons.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form-styles.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="../assets/css/Simple-Slider-Simple-Slider.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2" style="background: linear-gradient(62deg, var(--bs-red) 28%, var(--bs-pink)), var(--bs-red);">
             <div class="container">
                 <a class="navbar-brand me-auto" href="index.jsp">
-                    <img src="assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
+                    <img src="../assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
                     <span class="fs-3 mt-5">&nbsp All Sport</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,16 +39,16 @@
                                 <div class="ms-lg-5">
                                     <ul class="navbar-nav ms-lg-5">
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="aboutUs.jsp">Sobre Nosotros</a>
+                                            <a class="nav-link" href="../aboutUs.jsp">Sobre Nosotros</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="Subscripciones">Subscripciones</a>
+                                            <a class="nav-link" href="../Subscripciones">Subscripciones</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="Blog">Blog</a>
+                                            <a class="nav-link" href="../Blog">Blog</a>
                                         </li>
                                         <li class="nav-item mt-1 me-3">
-                                            <a class="nav-link" href="Tienda">Tienda</a>
+                                            <a class="nav-link" href="../Tienda">Tienda</a>
                                         </li>
                                         <li class="nav-item " style="margin-top: 2px;">
                                             <div style="margin-left: -15px;" id="navcol-5">
@@ -71,7 +71,7 @@
                                                                 <span class="text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
                                                                 <c:choose>
                                                                     <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="${usuario.rutaImg}" width="36" height="36"/>
+                                                                        <img src="../assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="${usuario.rutaImg}" width="36" height="36"/>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -106,7 +106,7 @@
                                                                     </li>
                                                                 </c:if>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="ListaDeEjercicios"
+                                                                    <a class="dropdown-item" href="../usuarioR/ListaDeEjercicios"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
                                                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                                                                         <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
@@ -115,7 +115,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="ConsultarPedido"
+                                                                    <a class="dropdown-item" href="../usuarioR/ConsultarPedido"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
                                                                         <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
                                                                         </svg>
@@ -123,7 +123,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="EditarPerfil"
+                                                                    <a class="dropdown-item" href="../usuarioR/EditarPerfil"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                                                                         </svg>
@@ -131,7 +131,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="CerrarSesion"
+                                                                    <a class="dropdown-item" href="../CerrarSesion"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                                                         <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                                                         <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -142,7 +142,7 @@
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="Login"
+                                                                    <a class="dropdown-item" href="../Login"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                                                                         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
                                                                         <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -151,7 +151,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="Registro"
+                                                                    <a class="dropdown-item" href="../Registro"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
                                                                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                                                         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
@@ -160,7 +160,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="index.jsp"
+                                                                    <a class="dropdown-item" href="../index.jsp"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                                                         <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                                                         <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -255,7 +255,7 @@
                 </svg>
             </a>
             <br>
-            <a href="admin/administrar.jsp" class="btn btn-secondary mt-2">Volver 
+            <a href="administrar.jsp" class="btn btn-secondary mt-2">Volver 
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
                 </svg>
@@ -273,10 +273,10 @@
                 return confirm('¿Estás seguro de que quieres eliminar este cliente?');
             }
         </script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-        <script src="assets/js/Simple-Slider.js"></script>
-        <script src="assets/js/theme.js"></script>
+        <script src="../assets/js/Simple-Slider.js"></script>
+        <script src="../assets/js/theme.js"></script>
     </body>
 </html>

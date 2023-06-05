@@ -11,19 +11,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Consultar Estado Pedidos</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-styles.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
-        <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-Dark-icons.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form-styles.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="../assets/css/Simple-Slider-Simple-Slider.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2" style="background: linear-gradient(62deg, var(--bs-red) 28%, var(--bs-pink)), var(--bs-red);">
             <div class="container">
-                <a class="navbar-brand me-auto" href="index.jsp">
-                    <img src="assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
+                <a class="navbar-brand me-auto" href="../index.jsp">
+                    <img src="../assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
                     <span class="fs-3 mt-5">&nbsp All Sport</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,16 +36,16 @@
                                 <div class="ms-lg-5">
                                     <ul class="navbar-nav ms-lg-5">
                                         <li class="nav-item mt-1">
-                                            <a class="text-light nav-link" href="aboutUs.jsp">Sobre Nosotros</a>
+                                            <a class="text-light nav-link" href="../aboutUs.jsp">Sobre Nosotros</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="nav-link" href="Subscripciones">Subscripciones</a>
+                                            <a class="nav-link" href="../Subscripciones">Subscripciones</a>
                                         </li>
                                         <li class="nav-item mt-1">
-                                            <a class="text-light nav-link" href="Blog">Blog</a>
+                                            <a class="text-light nav-link" href="../Blog">Blog</a>
                                         </li>
                                         <li class="nav-item mt-1 me-3">
-                                            <a class="text-light nav-link" href="Tienda">Tienda</a>
+                                            <a class="text-light nav-link" href="../Tienda">Tienda</a>
                                         </li>
                                         <li class="nav-item " style="margin-top: 2px;">
                                             <div style="margin-left: -15px;" id="navcol-5">
@@ -68,7 +68,7 @@
                                                                 <span class="text-light"><c:out value="${usuario.nombre}"/>&nbsp&nbsp</span>
                                                                 <c:choose>
                                                                     <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                                                                        <img src="assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="${usuario.rutaImg}" width="36" height="36"/>
+                                                                        <img src="../assets/imgClientes/<c:out value="${usuario.rutaImg}"/>" class="rounded-circle" alt="${usuario.rutaImg}" width="36" height="36"/>
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -94,7 +94,7 @@
                                                             <c:when test="${usuario.tipoUsuario == 'Admin' || usuario.tipoUsuario == 'Normal'}">
                                                                 <c:if test="${usuario.tipoUsuario == 'Admin'}">
                                                                     <li>
-                                                                        <a class="dropdown-item" href="admin/administrar.jsp"
+                                                                        <a class="dropdown-item" href="../admin/administrar.jsp"
                                                                            ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
                                                                             <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
                                                                             </svg>
@@ -139,7 +139,7 @@
                                                             </c:when>
                                                             <c:otherwise>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="Login"
+                                                                    <a class="dropdown-item" href="../Login"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                                                                         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
                                                                         <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -148,7 +148,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="Registro"
+                                                                    <a class="dropdown-item" href="../Registro"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
                                                                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                                                         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
@@ -157,7 +157,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="index.jsp"
+                                                                    <a class="dropdown-item" href="../index.jsp"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                                                         <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                                                         <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -201,11 +201,11 @@
             </c:choose>
 
         </div>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-        <script src="assets/js/Profile-Edit-Form.js"></script>
-        <script src="assets/js/Simple-Slider.js"></script>
-        <script src="assets/js/theme.js"></script>
+        <script src="../assets/js/Profile-Edit-Form.js"></script>
+        <script src="../assets/js/Simple-Slider.js"></script>
+        <script src="../assets/js/theme.js"></script>
     </body>
 </html>

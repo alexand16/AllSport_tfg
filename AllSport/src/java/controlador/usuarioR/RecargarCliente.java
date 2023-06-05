@@ -37,7 +37,7 @@ public class RecargarCliente extends HttpServlet {
         ClientesJpaController cjc = new ClientesJpaController(emf);
         cliente = cjc.findClientes(cliente.getId());
         request.getSession().setAttribute("usuario", cliente);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("../index.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

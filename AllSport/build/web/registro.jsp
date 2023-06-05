@@ -60,6 +60,7 @@
                 <button type="submit" class="btn btn-danger">Crear</button> &nbsp   
                 <a href="index.jsp" class="btn btn-secondary">Volver
                 </a>
+                <a href="Login" style="color: var(--bs-red);" class="">¿Ya tienes cuenta? Inicia Sesión</a>
             </form> 
             <br>
             <c:if test="${not empty error}">

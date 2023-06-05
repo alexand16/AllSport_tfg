@@ -29,7 +29,7 @@
             <form>
                 <textarea name="contenido" id="contenido" rows="5" cols="50"></textarea><br>
                 <button type="submit" class="btn btn-primary">Crear</button> &nbsp   
-                <a href="Blog" class="btn btn-secondary">Volver
+                <a href="../Blog" class="btn btn-secondary">Volver
                 </a>
             </form> 
             <br>
@@ -41,6 +41,6 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <script src="assets/js/validateRespuesta.js"></script>
+        <script src="../assets/js/validateRespuesta.js"></script>
     </body>
 </html>

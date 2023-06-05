@@ -122,19 +122,19 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
-        <url-pattern>/MenuClientes</url-pattern>
+        <url-pattern>/admin/MenuClientes</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditarCliente</servlet-name>
-        <url-pattern>/EditarCliente</url-pattern>
+        <url-pattern>/admin/EditarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminarCliente</servlet-name>
-        <url-pattern>/EliminarCliente</url-pattern>
+        <url-pattern>/admin/EliminarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CrearCliente</servlet-name>
-        <url-pattern>/CrearCliente</url-pattern>
+        <url-pattern>/admin/CrearCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -150,7 +150,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditarPerfil</servlet-name>
-        <url-pattern>/EditarPerfil</url-pattern>
+        <url-pattern>/usuarioR/EditarPerfil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Registro</servlet-name>
@@ -162,23 +162,23 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CrearPost</servlet-name>
-        <url-pattern>/CrearPost</url-pattern>
+        <url-pattern>/admin/CrearPost</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CrearRespuesta</servlet-name>
-        <url-pattern>/CrearRespuesta</url-pattern>
+        <url-pattern>/usuarioR/CrearRespuesta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminarPost</servlet-name>
-        <url-pattern>/EliminarPost</url-pattern>
+        <url-pattern>/admin/EliminarPost</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminarRespuesta</servlet-name>
-        <url-pattern>/EliminarRespuesta</url-pattern>
+        <url-pattern>/admin/EliminarRespuesta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MenuBlog</servlet-name>
-        <url-pattern>/MenuBlog</url-pattern>
+        <url-pattern>/admin/MenuBlog</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Tienda</servlet-name>
@@ -186,35 +186,35 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Cesta</servlet-name>
-        <url-pattern>/Cesta</url-pattern>
+        <url-pattern>/usuarioR/Cesta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminarProducto</servlet-name>
-        <url-pattern>/EliminarProducto</url-pattern>
+        <url-pattern>/usuarioR/EliminarProducto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GraciasPorSuCompra</servlet-name>
-        <url-pattern>/GraciasPorSuCompra</url-pattern>
+        <url-pattern>/usuarioR/GraciasPorSuCompra</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RecargarCliente</servlet-name>
-        <url-pattern>/RecargarCliente</url-pattern>
+        <url-pattern>/usuarioR/RecargarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GestionarPedidos</servlet-name>
-        <url-pattern>/GestionarPedidos</url-pattern>
+        <url-pattern>/admin/GestionarPedidos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConsultarPedido</servlet-name>
-        <url-pattern>/ConsultarPedido</url-pattern>
+        <url-pattern>/usuarioR/ConsultarPedido</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListaDeEjercicios</servlet-name>
-        <url-pattern>/ListaDeEjercicios</url-pattern>
+        <url-pattern>/usuarioR/ListaDeEjercicios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EliminarEjercicios</servlet-name>
-        <url-pattern>/EliminarEjercicios</url-pattern>
+        <url-pattern>/usuarioR/EliminarEjercicios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Subscripciones</servlet-name>
@@ -222,11 +222,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProcesarSub</servlet-name>
-        <url-pattern>/ProcesarSub</url-pattern>
+        <url-pattern>/usuarioR/ProcesarSub</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Ganancias</servlet-name>
-        <url-pattern>/Ganancias</url-pattern>
+        <url-pattern>/admin/Ganancias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

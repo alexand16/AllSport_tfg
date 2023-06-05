@@ -62,10 +62,13 @@ public class Tienda extends HttpServlet {
                 if (pedidosCliente.get(pedidosCliente.size() - 1).getEstadoPedido() == null) {
                     ultimoPedido = pedidosCliente.get(pedidosCliente.size() - 1);
                 } else {
-                    //si el cliente no tiene pedidos
                     ultimoPedido.setCliente((Clientes) session.getAttribute("usuario"));
                     pejc.create(ultimoPedido);//cuando compre edita y añade los datos necesarios
                 }
+            } else {
+                //si el cliente no tiene pedidos
+                ultimoPedido.setCliente((Clientes) session.getAttribute("usuario"));
+                pejc.create(ultimoPedido);//cuando compre edita y añade los datos necesarios
             }
             // Recogemos el producto seleccionado
             Productos producto = pjc.findProductos(Long.parseLong(request.getParameter("id")));

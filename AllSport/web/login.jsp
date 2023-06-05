@@ -27,11 +27,11 @@
                             <label for="contraseña" class="form-label">Contraseña:</label>
                             <input type="password" name="contraseña" value="${contraseña}" class="form-control" placeholder="Introduce tu contraseña" required>
                         </div>
-                        <button type="submit" class="btn btn-primary " style="margin: 1em 2em 1em 0em; background-color: var(--bs-red); border: none;">Iniciar sesión</button>
+                        <button type="submit" class="btn btn-primary " style="margin: 1em 0em 1em 0em; background-color: var(--bs-red); border: none;">Iniciar sesión</button>
                         <a href="index.jsp" class="btn btn-secondary">Volver
                         </a>
-                        <!--<a href="register.html" style="color: var(--bs-red);" class="">¿No tienes cuenta? Registrate</a>
-                        --></form>
+                        <a href="Registro" style="color: var(--bs-red);" class="">¿No tienes cuenta? Registrate</a>
+                        </form>
                         <c:if test="${not empty error}">
                         <div class="alert alert-danger">
                             ${error}

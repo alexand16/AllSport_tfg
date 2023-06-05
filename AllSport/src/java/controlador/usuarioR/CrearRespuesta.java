@@ -45,13 +45,16 @@ public class CrearRespuesta extends HttpServlet {
         ClientesJpaController cjc = new ClientesJpaController(emf);
         PostsJpaController pjc = new PostsJpaController(emf);
 
-// Obtener el valor de post del atributo de sesión, si está disponible
-        Long post = (Long) request.getSession().getAttribute("postId");
+// Obtener el valor del parámetro "id" de la solicitud
+        String idParam = request.getParameter("id");
 
-// Si no hay ningún valor de post en la sesión, obtenerlo del parámetro de solicitud
-        if (post == null) {
-            post = Long.parseLong(request.getParameter("id"));
+        if (idParam != null) {
+            Long post = Long.parseLong(idParam);
+            request.getSession().setAttribute("postId", post);
         }
+
+// Obtener el valor de post del atributo de sesión
+        Long post = (Long) request.getSession().getAttribute("postId");
 
         String contenido = request.getParameter("contenido");
         LocalDate fechaCreacion = LocalDate.now();
@@ -62,7 +65,7 @@ public class CrearRespuesta extends HttpServlet {
                 long idUsuario = aux.getId();
                 Clientes usuario = cjc.findClientes(idUsuario);
                 if (contenido.equals("")) {
-                    error = "los campos no pueden estar vacíos";
+                    error = "Los campos no pueden estar vacíos";
                 } else {
                     Respuestas r = new Respuestas();
                     r.setContenido(contenido);
@@ -72,14 +75,14 @@ public class CrearRespuesta extends HttpServlet {
                     RespuestasJpaController rjc = new RespuestasJpaController(emf);
                     try {
                         rjc.create(r);
-                        response.sendRedirect("Blog");
+                        response.sendRedirect("../Blog");
                         return;
                     } catch (RollbackException e) {
                         error = "Se ha producido un error al crear su respuesta";
                     }
                 }
             } else {
-                error = "debes iniciar sesión";
+                error = "Debes iniciar sesión";
             }
         }
 
@@ -87,9 +90,6 @@ public class CrearRespuesta extends HttpServlet {
             request.setAttribute("error", error);
             request.setAttribute("contenido", contenido);
         }
-
-// Guardar el valor de post en el atributo de sesión para su uso futuro
-        request.getSession().setAttribute("postId", post);
 
         getServletContext().getRequestDispatcher(vista).forward(request, response);
 

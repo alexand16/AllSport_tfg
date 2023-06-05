@@ -11,22 +11,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Editar usuario</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
-        <link rel="stylesheet" href="assets/css/Roboto.css">
-        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+        <link rel="stylesheet" href="../assets/css/Roboto.css">
+        <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+        <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
-        <link rel="stylesheet" href="assets/css/Pretty-Registration-Form-.css">
-        <link rel="stylesheet" href="assets/css/Pricing-Yearly--Monthly-badges.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form-styles.css">
-        <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
-        <link rel="stylesheet" href="assets/css/Shopping-Grid.css">
-        <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+        <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-Dark-icons.css">
+        <link rel="stylesheet" href="../assets/css/Pretty-Registration-Form-.css">
+        <link rel="stylesheet" href="../assets/css/Pricing-Yearly--Monthly-badges.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form-styles.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="../assets/css/Shopping-Grid.css">
+        <link rel="stylesheet" href="../assets/css/Simple-Slider-Simple-Slider.css">
     </head>
     <body>
         <main class="page cv-page">
@@ -42,7 +42,7 @@
                             <div class="col-md-4 relative" style="padding-left: 15px;padding-right: 19px;">
                                 <c:choose>
                                     <c:when test="${usuario.rutaImg != '' && usuario.rutaImg != null}">
-                                        <img id="imagenPerfil" class="rounded-circle me-5" src="assets/imgClientes/${cliente.rutaImg}" width="250px" height="250px" alt="${cliente.rutaImg}" />
+                                        <img id="imagenPerfil" class="rounded-circle me-5" src="../assets/imgClientes/${cliente.rutaImg}" width="250px" height="250px" alt="${cliente.rutaImg}" />
                                     </c:when>
                                     <c:otherwise>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="250px" height="250px" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -96,7 +96,7 @@
                                 <div class="row">
                                     <div class="col-md-12 content-right">
                                         <button class="btn btn-primary form-btn" type="submit">GUARDAR</button>
-                                        <a href="index.jsp" class="btn btn-danger">VOLVER
+                                        <a href="../index.jsp" class="btn btn-danger">VOLVER
                                         </a>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                 });
             });
         </script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     </body>

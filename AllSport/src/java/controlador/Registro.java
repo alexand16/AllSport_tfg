@@ -18,6 +18,7 @@ import modelo.dao.ClientesJpaController;
 import modelo.dao.CuotasJpaController;
 import modelo.entidades.Clientes;
 import static modelo.entidades.Clientes.getMD5;
+import modelo.entidades.Cuotas;
 
 /**
  *
@@ -44,7 +45,7 @@ public class Registro extends HttpServlet {
         String apellidos = "";
         String telefono = "";
         String email = "";
-        long cuota = 0;
+        long cuota = 100;
         LocalDate fechaNacimiento = null;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
         if (request.getParameter("nombre") != null) {
@@ -54,6 +55,7 @@ public class Registro extends HttpServlet {
             apellidos = request.getParameter("apellidos");
             telefono = request.getParameter("telefono");
             email = request.getParameter("email");
+
             fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
             CuotasJpaController cjc = new CuotasJpaController(emf);
             if (nombre.isEmpty() || apellidos.isEmpty() || telefono.isEmpty() || fechaNacimiento == null) {
@@ -71,11 +73,9 @@ public class Registro extends HttpServlet {
                 c.setObservaciones("");
                 c.setRutaImg("");
                 c.setFechaAlta(LocalDate.now());
-                if (cuota >= 0 && cjc.findCuotas(cuota) != null) {
-                    c.setEstadoMembresia("Activo");
-                } else {
-                    c.setEstadoMembresia("Inactivo");
-                }
+                c.setCuota(cjc.findCuotas(cuota));
+                c.setFechaPago(LocalDate.now());
+                c.setEstadoMembresia("Inactivo");
                 ClientesJpaController djc = new ClientesJpaController(emf);
                 try {
                     djc.create(c);

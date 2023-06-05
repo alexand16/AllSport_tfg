@@ -37,7 +37,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Crear</button> &nbsp   
-                <a href="admin/administrar.jsp" class="btn btn-secondary">Volver
+                <a href="MenuBlog" class="btn btn-secondary">Volver
                 </a>
             </form> 
             <br>

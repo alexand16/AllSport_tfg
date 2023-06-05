@@ -125,7 +125,7 @@
                                                                     </li>
                                                                 </c:if>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="ListaDeEjercicios"
+                                                                    <a class="dropdown-item" href="usuarioR/ListaDeEjercicios"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
                                                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                                                                         <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
@@ -134,7 +134,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="ConsultarPedido"
+                                                                    <a class="dropdown-item" href="usuarioR/ConsultarPedido"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
                                                                         <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
                                                                         </svg>
@@ -142,7 +142,7 @@
                                                                     >
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="EditarPerfil"
+                                                                    <a class="dropdown-item" href="usuarioR/EditarPerfil"
                                                                        ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                                                                         </svg>
@@ -203,70 +203,72 @@
         </nav>
         <!---------------------------------- End Nav Header ------------------------------------------->
         <div class="container my-5">
-            <h1 class=" my-5">Cuotas de Gimnasio</h1>
-            <c:if test="${cliente == null}">
-                <h4><i>Es necesario estar registrado para poder subscribirte</i></h4>
-            </c:if>
+            <div class="container py-5">
+                <h1 class=" my-5">Cuotas de Gimnasio</h1>
+                <c:if test="${cliente == null}">
+                    <h4><i>Es necesario estar registrado para poder subscribirte</i></h4>
+                </c:if>
 
-            <div id="cuotasCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+                <div id="cuotasCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
 
-                    <c:forEach var="cuota" items="${cuotas}" varStatus="status">
-                        <c:if test="${status.index % 3 == 0}">
-                            <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
-                                <div class="row">
-                                </c:if>
-                                <c:if test="${!status.last}">
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <div class="card-body flex-grow-0 p-4">
-                                                <span class="badge bg-primary text-uppercase mb-2" style="background: var(--bs-red);border-color: var(--bs-red);">${cuota.nombre}</span>
-                                                <h4 class="display-4 fw-bold card-title">${cuota.precio}&euro;<span class="fs-3 fw-normal text-muted">/mes</span></h4>
-                                            </div>
-                                            <div class="card-footer d-flex flex-column flex-grow-1 justify-content-between p-4">
-                                                <div>
-                                                    <ul class="list-unstyled">
-                                                        <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                </svg></span><span>Acceso total a las pistas</span></li>
-                                                        <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                </svg></span><span>Dietas a medida</span></li>
-                                                        <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                </svg></span><span>Entrenamientos Personalizados</span></li>
-                                                        <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                </svg></span><span>Acceso a clases (zumba, etc.)</span></li>
-                                                        <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                </svg></span><span>Online Trainer</span></li>
-                                                    </ul>
+                        <c:forEach var="cuota" items="${cuotas}" varStatus="status">
+                            <c:if test="${status.index % 3 == 0}">
+                                <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
+                                    <div class="row">
+                                    </c:if>
+                                    <c:if test="${!status.last}">
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <div class="card-body flex-grow-0 p-4">
+                                                    <span class="badge bg-primary text-uppercase mb-2" style="background: var(--bs-red);border-color: var(--bs-red);">${cuota.nombre}</span>
+                                                    <h4 class="display-4 fw-bold card-title">${cuota.precio}&euro;<span class="fs-3 fw-normal text-muted">/mes</span></h4>
                                                 </div>
-                                                <c:if test="${cliente != null}">
-                                                    <c:if test="${cliente.cuota.id == 100}">
-                                                        <form action="ProcesarSub" method="post" class="mt-4">
-                                                            <input type="hidden" name="cuotaId" value="${cuota.id}">
-                                                            <button type="submit" class="btn btn-danger btn-sm">Comprar</button>
-                                                        </form>
+                                                <div class="card-footer d-flex flex-column flex-grow-1 justify-content-between p-4">
+                                                    <div>
+                                                        <ul class="list-unstyled">
+                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                    </svg></span><span>Acceso total a las pistas</span></li>
+                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                    </svg></span><span>Dietas a medida</span></li>
+                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                    </svg></span><span>Entrenamientos Personalizados</span></li>
+                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                    </svg></span><span>Acceso a clases (zumba, etc.)</span></li>
+                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                    </svg></span><span>Online Trainer</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <c:if test="${cliente != null}">
+                                                        <c:if test="${cliente.cuota.id == 100}">
+                                                            <form action="usuarioR/ProcesarSub" method="post" class="mt-4">
+                                                                <input type="hidden" name="cuotaId" value="${cuota.id}">
+                                                                <button type="submit" class="btn btn-danger btn-sm">Comprar</button>
+                                                            </form>
+                                                        </c:if>
                                                     </c:if>
-                                                </c:if>
+                                                </div>
                                             </div>
                                         </div>
+                                    </c:if>
+                                    <c:if test="${status.index % 3 == 2 || status.index == cuotas.size() - 1}">
                                     </div>
-                                </c:if>
-                                <c:if test="${status.index % 3 == 2 || status.index == cuotas.size() - 1}">
                                 </div>
-                            </div>
-                        </c:if>
-                    </c:forEach>
+                            </c:if>
+                        </c:forEach>
+                    </div>
+                    <a class="carousel-control-prev align-self-start" href="#cuotasCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next align-self-end" href="#cuotasCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev align-self-start" href="#cuotasCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </a>
-                <a class="carousel-control-next align-self-end" href="#cuotasCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </a>
             </div>
         </div>
         <!---------------------------------- Start footer ------------------------------------------->

@@ -96,27 +96,34 @@ public class filtroSesion implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
         Clientes c = (Clientes) req.getSession().getAttribute("usuario");
-        if (!(c == null)) {
+        String requestURI = req.getRequestURI();
 
-            if (!c.getTipoUsuario().equals("Admin")) {
-                res.sendRedirect(req.getContextPath() + "/RecargarCliente");
+        if (c != null) {
+            if (c.getTipoUsuario().equals("Admin")) {
+                chain.doFilter(request, response);
             } else if (c.getTipoUsuario().equals("Normal")) {
-                res.sendRedirect(req.getContextPath() + "/RecargarCliente");
-
+                if (requestURI.startsWith(req.getContextPath() + "/usuarioR/")) {
+                    chain.doFilter(request, response);
+                } else {
+                    res.sendRedirect(req.getContextPath() + "/index.jsp");
+                }
+            } else {
+                res.sendRedirect(req.getContextPath() + "/index.jsp");
             }
-
         } else {
-            res.sendRedirect(req.getContextPath() + "/index.jsp");
+            if (requestURI.startsWith(req.getContextPath() + "/admin/")
+                    || requestURI.startsWith(req.getContextPath() + "/usuarioR/")) {
+                res.sendRedirect(req.getContextPath() + "/index.jsp");
+            } else {
+                chain.doFilter(request, response);
+            }
         }
-
-        chain.doFilter(request, response);
     }
 
     /**
