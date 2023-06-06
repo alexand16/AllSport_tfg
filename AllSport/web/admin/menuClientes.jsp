@@ -25,7 +25,7 @@
         <!---------------------------------- Start Nav Header ------------------------------------------->
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2" style="background: linear-gradient(62deg, var(--bs-red) 28%, var(--bs-pink)), var(--bs-red);">
             <div class="container">
-                <a class="navbar-brand me-auto" href="index.jsp">
+                <a class="navbar-brand me-auto" href="../index.jsp">
                     <img src="../assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
                     <span class="fs-3 mt-5">&nbsp All Sport</span>
                 </a>

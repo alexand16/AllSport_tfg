@@ -255,7 +255,7 @@
     <footer class="page-footer" style="background: linear-gradient(50deg, var(--bs-red) 33%, var(--bs-pink));">
         <div class="container">
             <div class="links">
-                <a class="nav-link" style="color: rgb(255,255,255)" href="aboutUs.jsp">Sobre Nosotros</a><a class="nav-link" style="color: rgb(255,255,255)" href="Blog">Blog</a><a class="nav-link" style="color: rgb(255,255,255)" href="Tienda">Tienda</a>
+                <a class="nav-link" style="color: rgb(255,255,255)" href="aboutUs.jsp">Sobre Nosotros</a><a class="nav-link" style="color: rgb(255,255,255)" href="Blog">Blog</a><a class="nav-link" style="color: rgb(255,255,255)" href="Tienda">Tienda</a><c:if test="${TieneValoracion}"><a class="nav-link" style="color: rgb(255,255,255)" href="usuarioR/Valorar">Valoraciones</a></c:if>
                 <div class="social-icons"><a href=https://m.facebook.com/profile.php?id=100049737866622&_rdr#" style="background: var(--bs-black);"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/allsport_santiponce/" style="background: var(--bs-black);"><i class="icon ion-social-instagram-outline"></i></a><a href="https://api.whatsapp.com/send?phone=652982078" style="background: var(--bs-black);"><i class="icon ion-social-whatsapp"></i></a></div>
             </div>
         </div>

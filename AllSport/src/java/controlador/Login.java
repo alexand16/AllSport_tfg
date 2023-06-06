@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
                 if (!(c.getUsuario() == null || c.getContrasena() == null)) {
                     if (c.getUsuario().equals(usuario) && c.getContrasena().equals(contraseña)) {
                         request.getSession().setAttribute("usuario", c);
-                        response.sendRedirect("index.jsp");
+                        response.sendRedirect("usuarioR/RecargarCliente");
                         return;
                     }
                 }

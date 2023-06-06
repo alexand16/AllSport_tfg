@@ -6,15 +6,14 @@ package controlador.usuarioR;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dao.ClientesJpaController;
+import javax.servlet.http.HttpSession;
 import modelo.dao.ValoracionesJpaController;
 import modelo.entidades.Clientes;
 import modelo.entidades.Valoraciones;
@@ -23,7 +22,7 @@ import modelo.entidades.Valoraciones;
  *
  * @author alanr
  */
-public class RecargarCliente extends HttpServlet {
+public class Valorar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,22 +35,38 @@ public class RecargarCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Clientes cliente = (Clientes) request.getSession().getAttribute("usuario");
+        String vista = "/usuarioR/valorar.jsp";
+        String error = "";
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
-        ClientesJpaController cjc = new ClientesJpaController(emf);
-        cliente = cjc.findClientes(cliente.getId());
-        request.getSession().setAttribute("usuario", cliente);
-        boolean TieneValoracion = true;
         ValoracionesJpaController vjc = new ValoracionesJpaController(emf);
-        List<Valoraciones> valoraciones = vjc.findValoracionesEntities();
-        for (int i = 0; i < valoraciones.size(); i++) {
-            if (cliente.getId() == valoraciones.get(i).getCliente().getId()) {
-                TieneValoracion = false;
+        int puntuacion = 0;
+        HttpSession session = request.getSession();
+        Clientes cliente = (Clientes) session.getAttribute("usuario");
+        if (request.getParameter("comentario") != null) {
+            if (request.getParameter("rating") == null) {
+                puntuacion = Integer.parseInt("5");
+            } else {
+                puntuacion = Integer.parseInt(request.getParameter("rating"));
+            }
+            String comentario = request.getParameter("comentario");
+            Valoraciones valoracion = new Valoraciones();
+            valoracion.setPuntuacion(puntuacion);
+            valoracion.setComentario(comentario);
+            valoracion.setFechaValoracion(LocalDate.now());
+            valoracion.setCliente(cliente);
+            try {
+                vjc.create(valoracion);
+                response.sendRedirect("RecargarCliente");
+                return;
+            } catch (Exception e) {
+                error = "error al procesar su valoración";
             }
 
         }
-        request.getSession().setAttribute("TieneValoracion", TieneValoracion);
-        response.sendRedirect("../index.jsp");
+        if (!error.isEmpty()) {
+            request.setAttribute("error", error);
+        }
+        getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

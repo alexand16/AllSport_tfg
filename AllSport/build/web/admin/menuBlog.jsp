@@ -29,7 +29,7 @@
         <!---------------------------------- Start Nav Header ------------------------------------------->
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2" style="background: linear-gradient(62deg, var(--bs-red) 28%, var(--bs-pink)), var(--bs-red);">
             <div class="container">
-                <a class="navbar-brand me-auto" href="index.jsp">
+                <a class="navbar-brand me-auto" href="../index.jsp">
                     <img src="../assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
                     <span class="fs-3 mt-5">&nbsp All Sport</span>
                 </a>
@@ -188,7 +188,7 @@
         </nav>
         <!---------------------------------- End Nav Header ------------------------------------------->
         <div class=" m-5">
-            <h1>Clientes</h1>
+            <h1>Posts</h1>
             <div style="overflow-y: scroll; height: 550px; border: 1px solid black;">
                 <table class="table table-striped">
                     <thead>

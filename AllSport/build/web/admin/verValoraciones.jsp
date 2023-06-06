@@ -1,30 +1,31 @@
 <%-- 
-    Document   : ganancias
-    Created on : 4 jun 2023, 0:18:27
+    Document   : verValoraciones
+    Created on : 6 jun 2023, 18:14:14
     Author     : alanr
 --%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Menu Clientes</title>
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-Dark-icons.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form-styles.css">
+        <link rel="stylesheet" href="../assets/css/Profile-Edit-Form.css">
+        <link rel="stylesheet" href="../assets/css/Simple-Slider-Simple-Slider.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
-        <link rel="stylesheet" href="../assets/css/Roboto.css">
-        <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-        <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.js"></script>
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->
         <nav class="navbar navbar-dark navbar-expand-md bg-dark py-2" style="background: linear-gradient(62deg, var(--bs-red) 28%, var(--bs-pink)), var(--bs-red);">
             <div class="container">
-                <a class="navbar-brand me-auto" href="../index.jsp">
+                <a class="navbar-brand me-auto" href="index.jsp">
                     <img src="../assets/img/logonegroRecortado.png" alt="Logo-AllSports" width="52px" height="52px"/>
                     <span class="fs-3 mt-5">&nbsp All Sport</span>
                 </a>
@@ -60,7 +61,7 @@
                                                         >
                                                         <%--
                                                         verifica que el usuario no sea nulo.
-                                                        Si es así, verifica si la propiedad rutaImg del objeto usuario no está vacía.
+                                                        Si es asÃ­, verifica si la propiedad rutaImg del objeto usuario no estÃ¡ vacÃ­a.
                                                             Si esto es verdadero, se muestra la imagen junto a su nombre.
                                                             De lo contrario, se muestra el icono de persona predeterminado junto a su nombre.
                                                         Si usuario es nulo, se muestra el mismo icono de persona predeterminado.
@@ -135,7 +136,7 @@
                                                                         <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                                                         <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                                                                         </svg>
-                                                                        Cerrar Sesión</a
+                                                                        Cerrar SesiÃ³n</a
                                                                     >
                                                                 </li>
                                                             </c:when>
@@ -146,7 +147,7 @@
                                                                         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
                                                                         <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                                                                         </svg>
-                                                                        Inicia sesión</a
+                                                                        Inicia sesiÃ³n</a
                                                                     >
                                                                 </li>
                                                                 <li>
@@ -182,55 +183,59 @@
             </div>     
         </nav>
         <!---------------------------------- End Nav Header ------------------------------------------->
-        <div class="m-5 container">
-            <h1>Gráfica de ganancias del gimnasio</h1>
-            <canvas id="grafica" style="width: 200px; height: 50px;"></canvas>
-            <span>Total ganado: ${total} &euro;</span><br>
-            <a href="administrar.jsp" class="btn btn-secondary mt-2">Volver&nbsp
+        <div class=" m-5">
+            <h1>Valoraciones:</h1>
+            <div style="overflow-y: scroll; height: 550px; border: 1px solid black;">
+                <table id="clientesTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="position: sticky; top: 0; background-color: white;">Nombre</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Fecha Valoracion</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Puntuacion</th>
+                            <th style="position: sticky; top: 0; background-color: white;">Comentario</th>
+                        </tr>
+                    </thead>
+                    <tbody style="overflow-y: scroll; height: 100%;">
+                        <c:forEach items="${valoraciones}" var="v">
+                            <tr>
+                                <td><c:out value="${v.cliente.nombre}"/></td>
+                                <td><c:out value="${v.fechaValoracion}"/></td>
+                                <td><c:out value="${v.puntuacion}"/></td>
+                                <td><c:out value="${v.comentario}"/></td>  
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+            <c:if test="${not empty error}">
+                <div class="alert alert-danger">
+                    ${error}
+                </div>
+            </c:if>
+            <br>
+            <a href="administrar.jsp" class="btn btn-secondary mt-2">Volver 
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
                 <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
                 </svg>
             </a>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+        </div>                                    
         <script>
-            // Obtener una referencia al elemento canvas del DOM
-            const $grafica = document.querySelector("#grafica");
-// Las etiquetas son las porciones de la gráfica
-            const etiquetas = ["Ventas Pedidos", "Ventas Subscripciones"]
-// Podemos tener varios conjuntos de datos. Comencemos con uno
-            const datosIngresos = {
-                data: [${totalPedidos}, ${totalSubscripciones}], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-                // Ahora debería haber tantos background colors como datos, es decir, para este ejemplo, 4
-                backgroundColor: [
-                    'rgba(163,221,203,0.2)',
-                    'rgba(232,233,161,0.2)',
-                ], // Color de fondo
-                borderColor: [
-                    'rgba(163,221,203,1)',
-                    'rgba(232,233,161,1)',
-                ], // Color del borde
-                borderWidth: 1, // Ancho del borde
-            };
-            new Chart($grafica, {
-                type: 'pie', // Tipo de gráfica. Puede ser dougnhut o pie
-                data: {
-                    labels: etiquetas,
-                    datasets: [
-                        datosIngresos,
-                    ]
-                },
-            });
+
         </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#clientesTable').DataTable();
+            });
+
+            function confirmar() {
+                return confirm('Â¿EstÃ¡s seguro de que quieres eliminar este cliente?');
+            }
+        </script>
         <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-        <script src="../assets/js/Profile-Edit-Form.js"></script>
         <script src="../assets/js/Simple-Slider.js"></script>
         <script src="../assets/js/theme.js"></script>
-
     </body>
 </html>
+
