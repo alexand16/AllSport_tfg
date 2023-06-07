@@ -71,7 +71,7 @@ public class GraciasPorSuCompra extends HttpServlet {
         }
         //crear factura y guardar nombre de la misma
         nombreFactura = pejc.generarFactura(idPedido, productosPedidos, cliente, ruta);
-        request.setAttribute("nombreFactura", ruta + "\\" + nombreFactura);
+        request.setAttribute("nombreFactura", nombreFactura);
         request.setAttribute("ruta", ruta);
 
         Pedidos pedido = new Pedidos();
@@ -79,13 +79,13 @@ public class GraciasPorSuCompra extends HttpServlet {
         pedido.setFechaPedido(LocalDate.now());
         pedido.setEstadoPedido("en proceso");
         pedido.setRutaFactura(ruta + "\\" + nombreFactura);
-        pedido.setTotal(Double.parseDouble((String)session.getAttribute("totalAPagar")));
+        pedido.setTotal(Double.parseDouble((String) session.getAttribute("totalAPagar")));
         try {
             pejc.edit(pedido);
         } catch (Exception e) {
             request.setAttribute("error", "Error al actualizar el pedido");
         }
-        
+
         //destruir cesta
         Productos_Pedidos productoPedidoAdestruir = new Productos_Pedidos();
         for (int i = 0; i < productosPedidos.size(); i++) {

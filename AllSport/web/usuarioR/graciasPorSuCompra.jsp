@@ -17,10 +17,9 @@
     <body>
         <div class="container">
             <h1 class="display-4">Gracias por su compra</h1>
-            <div class="mt-4">           
-                <!--<a href="<c:out value='${nombreFactura}'/>" class="btn btn-primary">Ver factura</a>
-                <embed src="assets/facturas/factura5301-30052023.pdf" type="application/pdf" width="100%" height="600px"/>
-                --><a href="../Tienda" class="btn btn-secondary">Volver</a>
+            <div class="mt-4">                          
+                <embed src="../assets/facturas/${nombreFactura}" type="application/pdf" width="100%" height="600px"/>
+                <a href="../Tienda" class="btn btn-secondary">Volver</a>
             </div>
         </div>
         <c:if test="${! empty error}">

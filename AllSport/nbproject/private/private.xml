@@ -4,12 +4,26 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="proyectoE">
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/crearPost.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/CrearPost.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/crearCliente.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/menuClientes.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/index.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/administrar.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/modelo/entidades/Valoraciones.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/RevisarValoraciones.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/usuarioR/RecargarCliente.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/MenuClientes.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/editarCliente.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/menuBlog.jsp</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/ganancias.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/menuClientes.jsp</file>
-            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/administrar.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Login.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/usuarioR/valorar.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/verValoraciones.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/tienda.jsp</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/admin/MenuBlog.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/Tienda.java</file>
+            <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/src/java/controlador/usuarioR/Valorar.java</file>
             <file>file:/C:/Users/alanr/OneDrive/Documentos/NetBeansProjects/AllSport/web/admin/gestionarPedidos.jsp</file>
         </group>
     </open-files>

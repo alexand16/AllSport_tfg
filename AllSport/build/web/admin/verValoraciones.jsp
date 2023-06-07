@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu Clientes</title>
+        <title>Ver Valoraciones</title>
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-Dark-icons.css">
         <link rel="stylesheet" href="../assets/css/Profile-Edit-Form-styles.css">

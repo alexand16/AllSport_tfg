@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>JSP Page</title>
+        <title>Gracias por su compra</title>
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
