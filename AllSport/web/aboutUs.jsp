@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark-icons.css">
         <link rel="stylesheet" href="assets/css/Pricing-Yearly--Monthly-badges.css">
         <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+        <link rel="shortcut icon" href="favicon.ico" />
     </head>
 
     <body>

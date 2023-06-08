@@ -184,7 +184,7 @@ public class PedidosJpaController implements Serializable {
 
                 // Crear un objeto PDPageContentStream para escribir en la página
                 PDPageContentStream contentStream = new PDPageContentStream(document, page);
-                PDImageXObject image = PDImageXObject.createFromFile(ruta + "\\..\\img\\background.jpg", document);
+                PDImageXObject image = PDImageXObject.createFromFile(ruta + "/../img/background.jpg", document);
 
                 // Configurar la fuente y el tamaño de la fuente
                 contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
@@ -236,7 +236,7 @@ public class PedidosJpaController implements Serializable {
                 String formattedDate = currentDateTime.format(formatter);
 
                 // Guardar el documento PDF
-                document.save(ruta + "\\" + "factura" + pedidoId + "-" + formattedDate + ".pdf");
+                document.save(ruta + "/" + "factura" + pedidoId + "-" + formattedDate + ".pdf");
                 nombreArchivo = "factura" + pedidoId + "-" + formattedDate + ".pdf";
                 document.close();
 

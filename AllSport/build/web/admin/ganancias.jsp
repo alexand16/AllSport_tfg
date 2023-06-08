@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+        <link rel="shortcut icon" href="../favicon.ico" />
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->

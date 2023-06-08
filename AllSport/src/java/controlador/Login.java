@@ -38,9 +38,9 @@ public class Login extends HttpServlet {
         String error = "";
 
         //Si recibimos datos
-        if (request.getParameter("usuario") != null && request.getParameter("contraseña") != null) {
+        if (request.getParameter("usuario") != null && request.getParameter("contrasena") != null) {
             String usuario = request.getParameter("usuario");
-            String contraseña = request.getParameter("contraseña");
+            String contraseña = request.getParameter("contrasena");
             contraseña = getMD5(contraseña);
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
             ClientesJpaController cjc = new ClientesJpaController(emf);
@@ -56,8 +56,6 @@ public class Login extends HttpServlet {
             }
             error = "Usuario o contraseña incorrectos.";
             request.setAttribute("error", error);
-            request.setAttribute("usuario", usuario);
-
 
         }
 

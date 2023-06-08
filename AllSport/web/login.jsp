@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Inicio de sesión</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <body>
         <div class="container pt-5">
@@ -21,18 +22,18 @@
                     <form method="post" class="mb-3">
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Usuario:</label>
-                            <input type="text" name="usuario" value="${usuario}" class="form-control" placeholder="Introduce tu nombre de usuario" required>
+                            <input type="text" name="usuario"  class="form-control" placeholder="Introduce tu nombre de usuario" required>
                         </div>
                         <div class="mb-3">
-                            <label for="contraseña" class="form-label">Contraseña:</label>
-                            <input type="password" name="contraseña" value="${contraseña}" class="form-control" placeholder="Introduce tu contraseña" required>
+                            <label for="contrasena" class="form-label">Contraseña:</label>
+                            <input type="password" name="contrasena" class="form-control" placeholder="Introduce tu contraseña" required>
                         </div>
                         <button type="submit" class="btn btn-primary " style="margin: 1em 0em 1em 0em; background-color: var(--bs-red); border: none;">Iniciar sesión</button>
                         <a href="index.jsp" class="btn btn-secondary">Volver
                         </a>
                         <a href="Registro" style="color: var(--bs-red);" class="">¿No tienes cuenta? Registrate</a>
-                        </form>
-                        <c:if test="${not empty error}">
+                    </form>
+                    <c:if test="${not empty error}">
                         <div class="alert alert-danger">
                             ${error}
                         </div>

@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <title>Gracias por su compra</title>
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="../favicon.ico" />
     </head>
     <body>
         <div class="container">

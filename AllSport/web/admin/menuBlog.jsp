@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+        <link rel="shortcut icon" href="../favicon.ico" />
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->

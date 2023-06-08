@@ -28,6 +28,7 @@
         <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
         <link rel="stylesheet" href="assets/css/Shopping-Grid.css">
         <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
+        <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->

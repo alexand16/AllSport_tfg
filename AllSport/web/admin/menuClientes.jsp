@@ -20,6 +20,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.js"></script>
+        <link rel="shortcut icon" href="../favicon.ico" />
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->

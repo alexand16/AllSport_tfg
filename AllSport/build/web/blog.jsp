@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
         <link rel="stylesheet" href="assets/css/Simple-Slider-Simple-Slider.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
+        <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <body>
         <!---------------------------------- Start Nav Header ------------------------------------------->

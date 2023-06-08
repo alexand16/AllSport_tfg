@@ -14,12 +14,12 @@ $(document).ready(function() {
         }
         
         // Validar contraseña
-        var contraseña = $('input[name="contraseña"]').val();
-        if (contraseña.trim() === '') {
+        var contrasena = $('input[name="contrasena"]').val();
+        if (contrasena.trim() === '') {
             toastr.error('El campo de contraseña es obligatorio.');
             return;
         }
-        if (contieneCaracteresPeligrosos(contraseña)) {
+        if (contieneCaracteresPeligrosos(contrasena)) {
             toastr.error('El campo de contraseña contiene caracteres peligrosos.');
             return;
         }
