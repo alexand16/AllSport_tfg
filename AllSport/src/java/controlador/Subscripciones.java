@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.dao.ActividadesPorCuotaJpaController;
 import modelo.dao.CuotasJpaController;
 import modelo.dao.PedidosJpaController;
 import modelo.dao.ProductosJpaController;
@@ -43,10 +44,11 @@ public class Subscripciones extends HttpServlet {
             throws ServletException, IOException {
         String vista = "/subscripciones.jsp";
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("AllSportPU");
-        CuotasJpaController cjc = new CuotasJpaController(emf);
+        ActividadesPorCuotaJpaController apcjc = new ActividadesPorCuotaJpaController(emf);
+
         HttpSession session = request.getSession();
         Clientes cliente = (Clientes) session.getAttribute("usuario");
-        request.setAttribute("cuotas", cjc.findCuotasEntities());
+        request.setAttribute("cuotas", apcjc.findActividadesPorCuotaEntities());
         request.setAttribute("cliente", cliente);
         if (request.getParameter("error") != null) {
             request.setAttribute("error", request.getParameter("error"));

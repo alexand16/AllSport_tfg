@@ -40,7 +40,8 @@ public class EliminarCliente extends HttpServlet {
         try {
             ujc.destroy(id);
         } catch (Exception e) {
-            error = "Error al eliminar al Cliente";
+            //pedidos hechos o comentarios en el blog
+            error = "Error al eliminar al Cliente, este cliente tiene datos importantes dentro de la web";
         }
         
         if (error.isEmpty()) {

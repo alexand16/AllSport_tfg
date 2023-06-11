@@ -205,44 +205,40 @@
         <!---------------------------------- End Nav Header ------------------------------------------->
         <div class="container my-5">
             <div class="container py-5">
-                <h1 class=" my-5">Cuotas de Gimnasio</h1>
+                <h1 class="my-5">Cuotas de Gimnasio</h1>
                 <c:if test="${cliente == null}">
                     <h4><i>Es necesario estar registrado para poder subscribirte</i></h4>
                 </c:if>
 
                 <div id="cuotasCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-
                         <c:forEach var="cuota" items="${cuotas}" varStatus="status">
                             <c:if test="${status.index % 3 == 0}">
                                 <div class="carousel-item ${status.index == 0 ? 'active' : ''}">
                                     <div class="row">
                                     </c:if>
-                                    <c:if test="${!status.last}">
+                                    <div class="col">
                                         <div class="col">
-                                            <div class="card h-100">
+                                            <div class="card h-100 cuota">
                                                 <div class="card-body flex-grow-0 p-4">
-                                                    <span class="badge bg-primary text-uppercase mb-2" style="background: var(--bs-red);border-color: var(--bs-red);">${cuota.nombre}</span>
-                                                    <h4 class="display-4 fw-bold card-title">${cuota.precio}&euro;<span class="fs-3 fw-normal text-muted">/mes</span></h4>
+                                                    <span class="badge bg-primary text-uppercase mb-2" style="background: var(--bs-red);border-color: var(--bs-red);">${cuota.cuota.nombre}</span>
+                                                    <h4 class="display-4 fw-bold card-title">${cuota.cuota.precio}&euro;<span class="fs-3 fw-normal text-muted">/mes</span></h4>
                                                 </div>
                                                 <div class="card-footer d-flex flex-column flex-grow-1 justify-content-between p-4">
                                                     <div>
                                                         <ul class="list-unstyled">
-                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                    </svg></span><span>Acceso total a las pistas</span></li>
-                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                    </svg></span><span>Dietas a medida</span></li>
-                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                    </svg></span><span>Entrenamientos Personalizados</span></li>
-                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                    </svg></span><span>Acceso a clases (zumba, etc.)</span></li>
-                                                            <li class="d-flex mb-2"><span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
-                                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
-                                                                    </svg></span><span>Online Trainer</span></li>
+                                                            <c:forEach items="${cuotas}" var="c">
+                                                                <c:if test="${cuota.cuota.id == c.cuota.id}">
+                                                                    <li class="d-flex mb-2">
+                                                                        <span class="bs-icon-xs bs-icon-rounded bs-icon-primary-light bs-icon me-2" style="background: rgba(255,14,28,0.2);">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-check-lg" style="color: var(--bs-red);">
+                                                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                        <span>${c.actividad.descripcion}</span>
+                                                                    </li>
+                                                                </c:if>
+                                                            </c:forEach>
                                                         </ul>
                                                     </div>
                                                     <c:if test="${cliente != null}">
@@ -256,13 +252,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </c:if>
+                                    </div>
                                     <c:if test="${status.index % 3 == 2 || status.index == cuotas.size() - 1}">
                                     </div>
                                 </div>
                             </c:if>
                         </c:forEach>
                     </div>
+
                     <a class="carousel-control-prev align-self-start" href="#cuotasCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     </a>
@@ -272,6 +269,7 @@
                 </div>
             </div>
         </div>
+
         <!---------------------------------- Start footer ------------------------------------------->
         <footer class="page-footer" style="background: linear-gradient(50deg, var(--bs-red) 33%, var(--bs-pink));">
             <div class="container">

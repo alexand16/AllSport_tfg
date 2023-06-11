@@ -128,6 +128,14 @@
         <servlet-name>Valorar</servlet-name>
         <servlet-class>controlador.usuarioR.Valorar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerPedidosCompletados</servlet-name>
+        <servlet-class>controlador.usuarioR.VerPedidosCompletados</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Valoraciones</servlet-name>
+        <servlet-class>controlador.Valoraciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MenuClientes</servlet-name>
         <url-pattern>/admin/MenuClientes</url-pattern>
@@ -243,6 +251,14 @@
     <servlet-mapping>
         <servlet-name>Valorar</servlet-name>
         <url-pattern>/usuarioR/Valorar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerPedidosCompletados</servlet-name>
+        <url-pattern>/usuarioR/VerPedidosCompletados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Valoraciones</servlet-name>
+        <url-pattern>/Valoraciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

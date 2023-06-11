@@ -62,7 +62,7 @@ public class CrearPost extends HttpServlet {
                     PostsJpaController pjc = new PostsJpaController(emf);
                     try {
                         pjc.create(p);
-                        response.sendRedirect("Blog");
+                        response.sendRedirect("../Blog");
                         return;
                     } catch (Exception e) {
                         request.setAttribute("error", "Error al crear el Post");

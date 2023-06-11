@@ -12,6 +12,8 @@
     <class>modelo.entidades.Productos_Pedidos</class>
     <class>modelo.entidades.Respuestas</class>
     <class>modelo.entidades.Valoraciones</class>
+    <class>modelo.entidades.ActividadesPorCuota</class>
+    <class>modelo.entidades.Actividades</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/allsport?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

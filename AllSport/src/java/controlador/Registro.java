@@ -82,7 +82,7 @@ public class Registro extends HttpServlet {
                     response.sendRedirect("index.jsp");
                     return;
                 } catch (RollbackException e) {
-                    error = "El usuario \"" + Usuario + "\" ya existe. \n O Revisa tu correo " + email + " si ya te has inscrito de forma presencial";
+                    error = "El usuario \"" + Usuario + "\" ya existe.";
                     //error += e.getMessage();
                 }
             }

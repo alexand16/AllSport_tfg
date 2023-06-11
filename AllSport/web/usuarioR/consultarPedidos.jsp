@@ -182,26 +182,35 @@
         </nav>
         <!---------------------------------- End Nav Header ------------------------------------------->
         <div class="container mt-5">
-            <h1>Mis Pedidos:</h1>
+            <h1>Mis Pedidos entregados:</h1>
             <c:choose>
                 <c:when test="${pedidosCompletos.size() > 0}">
                     <ul id="items-cesta" class="list-group">
                         <c:forEach items="${pedidosCompletos}" var="pc">
                             <li class="list-group-item d-flex align-items-center justify-content-between">
-                                <span class="d-flex align-items-center justify-content-between"><c:out value='${pc.cliente.nombre}'/> | <c:out value='${pc.total}'/>&euro; | <c:out value='${pc.fechaPedido}'/> | <c:out value='${pc.estadoPedido}'/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span>
+                                    <strong>Cliente:</strong> <c:out value='${pc.cliente.nombre}'/> |
+                                    <strong>Total:</strong> <c:out value='${pc.total}'/>&euro; |
+                                    <strong>Fecha:</strong> <c:out value='${pc.fechaPedido}'/> |
+                                    <strong>Estado:</strong> <c:out value='${pc.estadoPedido}'/>
                                 </span>
                             </li>
                         </c:forEach>
                     </ul>
+                    <a href="VerPedidosCompletados" class="btn btn-primary mt-3">Ver Pedidos Completados</a><br>
+                    <a href="RecargarCliente" class="btn btn-secondary mt-3">Volver</a>
                 </c:when>
                 <c:otherwise>
-                    <li class="list-group-item">
-                        No has hecho ningun pedido, para crear un pedido debes hacerlo desde la tienda<a href="RecargarCliente" class="btn btn-secondary">Volver</a>
-                    </li>
+                    <div class="alert alert-info mt-3">
+                        No has hecho ningún pedido. Para crear un pedido, debes hacerlo desde la tienda.
+                    </div>
+                    <a href="RecargarCliente" class="btn btn-secondary mt-3">Volver</a>
                 </c:otherwise>
             </c:choose>
-
         </div>
+
+
+
         <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
